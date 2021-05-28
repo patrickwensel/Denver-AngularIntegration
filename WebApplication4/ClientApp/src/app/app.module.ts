@@ -21,7 +21,7 @@ import { CoreModule } from './core/core.module';
 import { MaterialModule } from './shared/modules/material.module';
 import { SharedModule } from "./shared/modules/shared.module";
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { CommonMethods } from "src/app/core";
 
 @NgModule({
   declarations: [
@@ -54,7 +54,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    CommonMethods
   ],
   bootstrap: [AppComponent]
 })

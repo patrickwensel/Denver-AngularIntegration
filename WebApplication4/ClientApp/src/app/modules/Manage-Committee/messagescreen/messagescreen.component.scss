@@ -23,7 +23,7 @@
 
 .msgpanelcls {
   padding: 15px;
-  box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+  // box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
   margin-bottom: 40px;
 }
 .btn-search {
@@ -58,7 +58,7 @@
 }
 
 .msgfont {
-  color: rgb(15 85 151);
+  // color: rgb(15 85 151);
   font-size: 25px;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .inputsearch ::ng-deep .mat-form-field-flex {
-  box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+  // box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
   background: transparent;
 }
 
@@ -85,7 +85,7 @@
 
 .heading {
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.794);
+  // color: rgba(0, 0, 0, 0.794);
   font-weight: bold;
   margin: 0px;
   width: 94%;
@@ -161,7 +161,7 @@ h2 span {
 .uploadclss {
   color: #073d6e;
   float: left;
-  border: 2px solid rgb(15 85 151);
+  // border: 2px solid rgb(15 85 151);
   padding: 8px 40px;
   font-weight: 500;
   background: white;
@@ -174,7 +174,7 @@ h2 span {
 .replybtn {
   background: #0f5597;
   color: white;
-  border: 2px solid rgb(15 85 151);
+  // border: 2px solid rgb(15 85 151);
   padding: 8px 25px;
   font-weight: 500;
 }

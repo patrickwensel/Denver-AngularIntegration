@@ -18,7 +18,7 @@ export class LocalDateTimePipe extends DatePipe implements PipeTransform {
             } else {
                 dateObj = new Date(value);
             }
-            return super.transform(dateObj, this.masterKey.dateAndTime);
+            return super.transform(dateObj, this.masterKey.dateFormat);
         }
     }
 }

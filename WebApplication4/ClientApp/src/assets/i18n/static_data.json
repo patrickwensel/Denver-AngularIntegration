@@ -1,0 +1,461 @@
+{
+	"en": {
+		"header_section": {
+			"heading": "City of Denver",
+			"btn_spanish": "Spanish",
+			"btn_help": "Help",
+			"filling": "Filing",
+			"Committee_information": "Committee Information",
+			"fine_and_fees": "Fine and Fees",
+			"notification": "Messages",
+			"calendar": "Calendar",
+			"managecomponent": "Manage Committees",
+			"committeeInfo": "Committee Information",
+			"payment": "Payment",
+			"systemManagement": "System Management",
+			"reviewFilling": "Review Filings",
+			"publicfunding": "Public Funding",
+			"revokestatus": "Revoke Status",
+			"registration": "Registration"
+		},
+		"staticmessages": {
+			"noAffliatedEntityMsg1": "You are not currently affiliated with a filer.",
+			 "noAffliatedMsg2": "You can register a new filer or join an existing filer through the Account menu."
+		},
+		"button": {
+			"next": "Next",
+			"submit": "Submit",
+			"back": "Back",
+			"clear": "Clear",
+			"approve": "Approve",
+			"deny": "Deny",
+			"send": "Send",
+			"save": "Save",
+      "cancel": "Cancel",
+	  "add": "Add",
+	  "update": "Update"
+		},
+		"notFound": {
+			"notfound": "No Data Found"
+		},
+		"login": {
+			"title": "Welcome",
+			"sign_in": "Enter your credentials to sign in",
+			"email_placeholder": "Email",
+			"password_placeholder": "Password",
+			"forgot_password": "Forgot Password",
+			"log_in": "Log in",
+			"Create_Account": "Create Account",
+			"reset_password": "Reset your password",
+			"email_address": "Please enter your registered email ID",
+			"reset_Link": "Send password reset link",
+			"email_Required": "Please enter your registered Email ID",
+			"back_Link": "Back",
+			"submit-button": "Submit",
+			"newpassword": "New Password",
+			"confirmpassword": "Confirm Password",
+			"change_password": "Change Password",
+			"resetpassword": "Reset Password",
+			"oldpassword": "Old Password"
+		},
+		"lobbyist": {
+			"createLobbyist": {
+				"select_entity": "Select your Lobbying Entity",
+				"create_entity": "Register a new Lobbying Entity"
+			},
+			"lobby": {
+				"heading_1": "1.Lobbyist Information",
+				"heading_2": "2.Employees",
+				"heading_3": "3.SubContractor",
+				"heading_4": "4.Relationships",
+				"heading_5": "5.Clients",
+				"heading_6": "6.Signature"
+			},
+			"register": {
+				"relationships": "Relationships",
+				"Signature": "Signature",
+				"regis_Lobby": "Lobbyist Registration",
+				"emp_Lobby": "Employees",
+				"signature_lobby": "Create Signature",
+				"subContract_lobby": "Subcontractors",
+				"relationship_lobby": "Lobbyist Relationships",
+				"clients_lobby": "Clients",
+				"heading": "Lobbyist Information",
+				"add_new_relationship": "Add New Relationship",
+				"add_new_subcontractor": "Add New Subcontractor",
+				"add_new_employee": "Add New Employee",
+				"year": "Year",
+				"lobby_type": "Lobbyist Type",
+				"primary_first_name": "Primary Registering Lobbyist",
+				"first_name": "First Name",
+				"last_name": "Last Name",
+				"firm_name": "Name of Firm or Organization",
+				"bus_Address1": "Business Address 1",
+				"bus_Address2": "Business Address 2",
+				"city": "City",
+				"state": "State",
+				"zip_code": "Zip Code",
+				"phone": "Phone",
+				"email": "Email",
+				"submit": "Submit",
+				"back": "Back",
+				"next": "Next",
+				"cancel": "Cancel",
+				"save": "Save",
+				"terminate_registration": "Terminate Registration",
+				"counsil": "for City Council 2020"
+			},
+			"relationship": {
+				"lobbyist": "Lobbyist",
+				"official_name": "Official Name",
+				"official_title": "Official Title",
+				"relationship": "Relationship",
+				"entity_name": "Entity Name"
+			},
+			"subcontractors": {
+				"type": "Type",
+				"subcontractor_name": "Subcontractor Name",
+				"phone_number": "Phone Number",
+				"email": "Email",
+				"sub_contractor": "Subcontractor Name"
+			},
+			"clients": {
+				"client": "Client",
+				"company_name": "Company Name",
+				"lobbyist": "Lobbyist",
+				"nature_of_business": "Nature of Business",
+				"legislative_matters": "Legislative Matters",
+				"address1": "Address 1",
+				"address2": "Address 2",
+				"city": "City",
+				"state": "State",
+				"zip": "Zip",
+				"action": "Action",
+				"add_new_client": "Add New Client"
+			},
+			"employees": {
+				"lobbyist": "Lobbyist",
+				"first_name": "First Name",
+				"last_name": "Last Name",
+				"phone": "Phone",
+				"email": "Email"
+			},
+			"signature": {
+				"first_name": "First Name",
+				"last_name": "Last Name",
+				"signature": "Signature",
+				"email": "Email"
+			}
+		},
+		"create_account": {
+			"tab_heading": {
+				"heding_1": "1.Contact Information",
+				"heding_2": "2.Set Password",
+				"heding_3": "3.Choose User Type",
+				"heding_4": "4.Additional Information"
+			},
+			"contact_info": {
+				"heading": "Information",
+				"first_name": "First Name",
+				"last_name": "Last Name",
+				"mail_addrs_1": "Mailing Address 1",
+				"mail_addrs_2": "Mailing Address 2",
+				"city": "City",
+				"state": "State",
+				"zipcode": "Zip Code",
+				"phone": "Phone"
+			},
+			"set_password": {
+				"heading": "Email and Password",
+				"password": "Password",
+				"confirm_password": "Confirm Password",
+				"email": "Email",
+				"login_Req": "Enter the email and password you will use to login to the system"
+			},
+			"user_type": {
+				"heading": "Are you logging on as a...",
+				"password": "Passwo"
+			},
+			"additional_information_IEF": {
+				"heading": "Additional Information",
+				"filling_as": "Are you filling as an...",
+				"filer_type": "Filer Type",
+				"occupation": "Occupation",
+				"employer": "Employer",
+				"organizationName": "Organization Name"
+			},
+			"select_create_commitee": {
+				"select_entity": "Select your committee(s)",
+				"create_entity": "Register a new committee",
+				"select_ie_entity": "Select your Independent Expediture(s)"
+			},
+			"search_placeholder": {
+				"committee_entity": "Search committees",
+				"lobby_entity": "Search lobbying entity",
+				"ie_entity": "Search Independent Expenditure"
+			},
+			"select_create_lobbyist": {
+				"select_entity": "Select your Lobbying entity",
+				"create_entity": "Register a new Lobbying entity"
+			},
+			"confirm_commitee_lobbyist": {
+				"committe_confrim_text": "Selected Lobbying entity",
+				"lobby_confirm_text": "Selected new committee"
+			},
+			"confirm_submit": {
+				"submit": "Confirm and Submit",
+				"select_committee": "Selected Committees",
+				"select_lobby": "Selected lobbying entities",
+				"instruction": "By clicking submit you confirm that you are a member of the above committee. The committee treasurer will be notified of your request to be added to the committee.",
+				"success": "Success! Your account has been created and your request for access has been sent to the ",
+				"directEmail": "You will be notified at"
+			}
+		},
+		"committee_registration": {
+			"tab_heading": {
+				"heding_1": "1.Committee Information",
+				"heding_2": "2.Contact Information",
+				"heding_3": "3.Add Officers",
+				"heding_4": "4.Bank Information"
+			},
+			"committee_info": {
+				"heading": "Committee Information",
+				"register": "Committee Registration",
+				"committee_name": "Committee Name",
+				"committee_type": "Committee Type",
+				"ballot_issue": "Ballot Issue",
+				"election_date": "Election Date",
+				"position": "Position",
+				"purpose": "Purpose",
+				"candidateFirstName": "Candidate First Name",
+				"candidateLastName": "Candidate Last Name",
+				"office_sought": "Office Sought",
+				"district": "District"
+			},
+			"commitee_contact": {
+				"heading": "Committee Contact Information",
+				"address_1": "Address 1",
+				"address_2": "Address 2",
+				"city": "City",
+				"state": "State",
+				"zipcode": "Zip Code",
+				"camp_phone": "Campaign Phone",
+				"camp_email": "Campaign Email",
+				"alt_phone": "Alternate Phone",
+				"alt_email": "Alternate Email",
+				"comm_website": "Committee Website"
+			},
+			"commitee_office": {
+				"list_heading": "Current Officers",
+				"add_heading": "Add New Officer",
+				"address_1": "Address 1",
+				"address_2": "Address 2",
+				"city": "City",
+				"state": "State",
+				"zipcode": "Zip Code",
+				"camp_phone": "Campaign Phone",
+				"camp_email": "Campaign Email",
+				"alt_phone": "Alternate Phone",
+				"alt_email": "Alternate Email",
+				"comm_website": "Committee WebSite",
+				"email": "Email",
+				"phone": "Phone",
+				"zip": "Zip",
+				"office_type": "Officer Type",
+				"description": "Description",
+				"first_name": "First Name",
+				"last_name": "Last Name",
+				"search": "search",
+				"edit": "Edit"
+			},
+			"bank_info": {
+				"heading": "Bank Information",
+				"bankName": "Bank Name",
+				"Address1": "Address 1",
+				"Address2": "Address 2",
+				"city": "City",
+				"state": "State",
+				"zipcode": "Zip Code"
+			},
+			"committee_registration_success": {
+				"thank_you_message": " Thank you for Submitting your committee registration!",
+				"treasurer_message": "Before your registration can be approved by staff, You must also submit a notarized treasurer document to clerk's office.Please downdload the form below and mail it in to the Clerk's office at ",
+				"candidate_message": "As a Candidate,You also need to submit a nottarized candidate affidavit confirming your intent to run for office.Please downdload the form below and mail it in to the Clerk's office at ",
+				"contact_us_message": "You can contact us with any question here.",
+				"treasurer_btn": "Treasurer Document",
+				"candidate_btn": "Candidate Affidavit",
+				"contact_us_btn": "Contact Us"
+			}
+		},
+		"manage_committee": {
+			"manage_committee": "Manage Committees",
+      "manage_filers":"Manage Filers",
+      "search_filers":"Search Filers",
+      "filer_type":"Filer Type",
+      "filer_status":"Filer Status",
+			"search_committees": "Search Committees",
+			"committee_type": "Committee Type",
+			"committee_status": "Committee Status",
+			"date": "Last Filling Date",
+			"start_date": "Start Date",
+			"end_date": "End Date",
+			"office": "Office",
+			"public_funding_status": "Public Funding Status",
+			"download_csv": "Download CSV",
+			"view": "View",
+			"committee_information": "Committee Information",
+			"committee_registration": "Committee Registration",
+			"committee_contaact": "Committee Contact Information",
+			"bank_information": "Bank Information",
+			"officer_contact_information": "Officer Contact Information"
+		},
+		"system_Management": {
+			"ballot_Issues_heading": {
+				"ballot_Issues": "Ballot Issues",
+				"issue_Number": "Issue Number",
+				"issue_id": "Issue ID",
+				"issue_Name": "Issue Name",
+				"election_cycle": "Election Cycle",
+				"description": "Description",
+				"action": "Action",
+				"committee_id": "Committee ID",
+				"committee_Name": "Committee Name",
+				"position": "Position"
+			}
+		},
+		"commitee_type": {
+			"commitee": "Committee Types",
+			"commitee_typ": "Committee Type",
+			"current_settings": "Current Settings",
+			"issue_commitee": "Issue Commitee",
+			"candidate_commitee": "Candidate Commitee",
+			"small_donar_commitee": "Small Donar Commitee",
+			"independent_exp_commitee": "Independent Expenditure Commitee",
+			"action": "Action"
+		},
+		"office": {
+			"offs": "Offices",
+			"office_Name": "Office Name",
+			"current_settings": "Current Settings",
+			"off": "Office",
+			"action": "Action"
+		},
+		"contribution": {
+			"limits": "Contribution Limits",
+			"type": "Filer Type",
+			"donor": "Donar Type",
+			"off": "Office",
+			"con_limit": "Contribution Limit",
+			"election_cycle": "Election Cycle",
+			"action": "Action"
+		},
+		"public_funding": {
+			"public_fund": "Public Funding",
+			"election_cycle": "Election Cycle",
+			"qualify_period": "Qualifying Period",
+			"qualifying_offices": "Qualifying Offices",
+			"available": "Total Available Funds",
+			"ratio": "Match Ratio",
+			"qualifying_contribution": "Qualifying Contribution Amount",
+			"number_of_req": "Number of Required Qualifying Contributions",
+			"contr_limit": "Contribution Limits for Participants",
+			"contr_amount": "Matched Contribution Amount",
+			"action": "Action"
+		},
+		"Switch_Committee": {
+			"switch_comm": "What filer are you working on?",
+			"select_comm": "Campaign Committees",
+			"select_lobb": "Registered Lobbyists",
+			"select_IE": "Registered Independent Spender",
+			"view_other": "View Other Filers",
+			"reg_or_join": "Register Or Join",
+			"new_comm": "New Committee",
+			"join_comm": "Join a Committee",
+			"new_indipendent": "New Independent Spender",
+			"join_indipendent": "Join an Independent Spender",
+			"new_lobby": "New Lobbyist",
+			"join_lobby": "Join a Lobbyist",
+			"new_cover_off": "New Covered Official",
+			"current_comm": "Current Committee",
+			"current_selection": "Current Selection",
+			"Committee_name": "Committee Name",
+			"Committee_id": "Committee ID ",
+			"Committee_type": "Committee Type",
+			"Candidate_name": "Candidate Name",
+			"treasurer_name": "Treasurer Name",
+			"election_date": "Election Date",
+			"public_fund": "Public Funding Status",
+			"new_comm_head": "New Committee Affiliation",
+			"new_lobb_head": "New Lobbyist Affiliation",
+			"new_ie_head": "New Independent Expenditure Affiliation",
+			"new_comm_head_paragh": "Select an existing committee to request access from the current committee users. The Committee teasurer is responsible for reviewing  your request. You will be receive an email notification when your request is approved or denied.",
+			"new_lob_head_paragh": "Select an existing Lobbying Entity to request access from the current lobbyist users. The Primary Lobbyist is responsible for reviewing your request. You will receive an email notification when your request is approved or denied.",
+			"add_note": "Add Note",
+			"ballot_issue":"Ballot Issue",
+			"position":"Position",
+			"purpose":"Purpose",
+			"lobby_name":"Lobbyist Name",
+			"lobby_id":"Lobbyist ID",
+			"lobby_type":"Lobbyist Type",
+			"org_name":"Organization Name",
+			"prim_reg_lobby_name":"Primary Registered Name",
+
+			"ie_name":"IE Name",
+			"ie_id":"IE ID",
+			"ie_type":"IE Type",
+			"ie_org_name":"Organization Name",
+			"ie_employer":"Employer",
+			"ie_occupation":"Occupation",
+
+
+      "office_Sought":"Office Sought",
+      "district":"District"
+		},
+		"Committee_Information": {
+			"commitee_name": "Committee Name",
+			"commitee_id": "Committee ID",
+			"committee_type": "Committee Type",
+			"Candidate_name": "Candidate Name",
+			"tresurer_name": "Treasurer Name",
+			"election_date": "Election Date",
+			"public_funding_status": "Public Funding Status",
+			"ballot_issue": "Ballot Issue",
+			"position": "Position",
+			"purpose": "Purpose"
+		},
+		"Independent_expenditure_Details": {
+			"ie_filer_name": "IE Filer Name",
+			"ie_filerid": "IE Filer ID",
+			"ie_filer_type": "IE Filer Type",
+			"organization_name": "Organization Name",
+			"employer": "Employer",
+			"occupation": "Occupation"
+		},
+		"Lobbyist_Details": {
+			"lobbyist_filer_name": "Lobbyist Filer Name",
+			"lobbyist_filerId": "Lobbyist Filer ID",
+			"lobbyist_filer_type": "Lobbyist Filer Type",
+			"organization_name": "Organization Name",
+			"primary_reg_lobby_name": "Primary Registered Lobbyist Name"
+		},
+		"Ethics_File": {
+			"ethics_filer_name": "Ethics Filer Name",
+			"ethics_filer_id": "Ethics Filer ID"
+		},
+		"public_funds_navigate_tools": {
+			"commitee_reg": "Committee Registration",
+			"public_fund": "Public Funding",
+			"filing": "Filing",
+			"messages": "Messages",
+			"finesandfees": "Fines and Fees",
+			"documents": "Documents"
+		},
+		"lobby_existing_reports_table": {
+			"filling_period": "Filling Period",
+			"reporting_period": "Reporting Period",
+			"data_reported": "Date Submitted",
+			"ammendment": "Ammendment",
+			"view": "View"
+		}
+	}
+}

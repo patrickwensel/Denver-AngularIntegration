@@ -1,5 +1,5 @@
 .inpbtn {
-    background: rgb(15 85 151);
+    // background: rgb(15 85 151);
     padding: 5px 15px;
     color: #ffffff;
     border: white;
@@ -8,7 +8,7 @@
   }
 
   .material-icons {
- color: rgb(15 85 151);
+//  color: rgb(15 85 151);
  font-size: 18px;
   }
   .lobbyhead {
@@ -44,7 +44,7 @@
   ::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
   ::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
     font-weight: 700;
-    color: rgb(15 85 151);
+    // color: rgb(15 85 151);
     opacity: 1;
   }
 
