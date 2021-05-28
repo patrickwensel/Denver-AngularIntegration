@@ -1,0 +1,101 @@
+<div class="msgclass">
+    <div class="msglist">
+        <div class="head">
+            <mat-icon (click)= "back()">keyboard_backspace</mat-icon>
+            <span class="title"> {{static_data.public_funds_navigate_tools.messages}}</span>
+            <a mat-button class="txt-align">
+                <mat-icon matsuffix>add_circle_outline</mat-icon>
+                <span> New message </span>
+            </a>
+        </div>
+        <div class="msgpanelcls">
+        <div class="search">
+            <form class="create-form" id="create-info" autocomplete="off" [formGroup]="msgform">
+                <div style="display: flex; ">
+                    <div style="width: 100%">
+                        <mat-form-field class="inputsearch" style="width: 100%;">
+                            <input type="text" matInput name="SearchControl" formControlName="minDate"  style="margin-bottom: 6px;"
+                                id="search-popular" placeholder="Search">
+                            <mat-icon matPrefix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <button type="button" class="btn-search" style="height: 40px;" mat-flat-button color="primary"
+                        matSuffix aria-label="Clear">
+                        SEARCH
+                    </button>
+                </div>
+                <span>Date</span>
+                <div class="grid-date">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Min Date</mat-label>
+                        <input matInput [matDatepicker]="picker1" formControlName="minDate" keyPrevent autocomplete="off" [DateField]="true" (dateChange)="onStartDateChange()"    >
+                        <!-- <mat-icon matDatepickerToggleIcon>insert_invitation</mat-icon> -->
+                        <mat-datepicker-toggle matPrefix [for]="picker1">
+                            <!-- <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                        <mat-error class="error">
+                            Please enter Valid Date
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Max Date</mat-label>
+                        <input matInput [matDatepicker]="picker2" formControlName="maxDate" keyPrevent autocomplete="off" [DateField]="true" [min]="minEndDate"  [disabled] = "!msgform.value.minDate"  >
+                        <mat-datepicker-toggle matPrefix [for]="picker2">
+                            <!-- <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                        <mat-error class="error">
+                                Please enter Valid Date
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+        </div>
+        <div >
+            <span class="archivecls">View Archived Messsages
+            </span>
+            <!-- <app-messagecomponent></app-messagecomponent> -->
+            <div class="scrollcls">
+                <div class="msgtab" *ngFor="let item of sampleobj">
+                    <div style="display: flex">
+                        <p class="heading"> {{item.heading}}</p>
+                        <span class="material-icons" > get_app </span>
+                    </div>
+                    <p class="subheading"> {{item.date}}</p>
+                    <p class="date"> {{item.subheading}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="msgdisplay">
+        <!-- <span class="namehead"> Loream ipsum</span>
+        <h2><span>Thursday, 12/01/2020</span></h2>
+            <div class="msgcontent">
+                    <div class="leftalign">
+                            <p>
+                                    Lorem ipsum dolor sit amet, ei vidit illud aperiri usu, semper scripta delectus pro at, ceteros
+                                    urbanitas nam ei. Ut vim habeo inani iusto. Vis ei legimus dolorem convenire, ei duo stet prima ullum.
+                                    Vim eu option signiferumque, cum in simul dissentiunt, ea sed doctus similique voluptatum. Vero insolens
+                                    ea est
+                                </p>
+                                <p>Thanks, <br>
+                                    Vicky
+                                </p> <br>
+                    </div>
+            </div>
+            -->
+        <app-msgscreen-right-panel [msghead]="msghead" [msgcontent]="msgcontent" [msgdate]="msgdate">
+        </app-msgscreen-right-panel>
+        <div class="btmcontent">
+            <div style="width: 72%">
+                <button class="uploadclss">Upload File</button>
+            </div>
+
+            <button class="replybtn">Reply</button>
+        </div>
+
+    </div>
+</div>

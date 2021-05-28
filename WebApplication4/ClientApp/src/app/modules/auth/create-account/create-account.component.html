@@ -1,0 +1,405 @@
+<!-- Create User -->
+<div class="container">
+    <div class="account-modules">
+
+        <div class="width-100 account-inner-view" style="padding: 1rem 2rem;" *ngIf="showTab && !confirm">
+            <h1 class="color-BrightBlue font-600">{{static_data?.login?.Create_Account}}</h1>
+            <mat-tab-group [selectedIndex]="selectIndex">
+                <mat-tab [disabled]="isSelected(0)" label="{{static_data?.create_account?.tab_heading?.heding_1}}">
+                    <ng-template matTabContent>
+                        <h1 class="color-BrightBlue header-pad-top">
+                            {{static_data?.create_account?.contact_info.heading}}
+                        </h1>
+                        <form class="create-form" id="create-info" autocomplete="off" [formGroup]="createInformationForm">
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.contact_info?.first_name}}</mat-label>
+                                <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info?.first_name}}</mat-label>
+                                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="FirstName" maxlength="80" formControlName="firstName" keyPrevent [AlphaSpace]="true" required>
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(createInformationForm.get('firstName'), 'contactfirstName')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                                <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="LastName" maxlength="80" formControlName="lastName" keyPrevent [AlphaSpace]="true" required>
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(createInformationForm.get('lastName'), 'contactlastName')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.contact_info?.mail_addrs_1}}</mat-label>
+                                <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info?.mail_addrs_1}}</mat-label>
+                                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="MailingAdd1" maxlength="150" formControlName="mailingAdd1" keyPrevent [mailAddress]="true" required>
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(createInformationForm.get('mailingAdd1'), 'mailingAdd1')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.contact_info?.mail_addrs_2}}</mat-label>
+                                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info?.mail_addrs_2}}</mat-label>
+                                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="MailingAdd2" maxlength="150" formControlName="mailingAdd2" keyPrevent [mailAddress]="true">
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(createInformationForm.get('mailingAdd2'), 'mailingAdd2')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.contact_info.city}}</mat-label>
+                                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info?.city}}</mat-label>
+                                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="City" formControlName="city" keyPrevent [AlphaSpace]="true" required>
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(createInformationForm.get('city'), 'contactcity')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.contact_info?.state}}</mat-label>
+                                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info?.state}}</mat-label>
+                                    <mat-select formControlName="state" required #select>
+                                        <!-- <mat-select-trigger>
+                      {{ select.value}}
+                    </mat-select-trigger> -->
+                                        <mat-option *ngFor="let state of getState" [value]="state.stateCode">
+                                            {{state.stateDesc}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(createInformationForm.get('state'), 'contactState')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.contact_info?.zipcode}}</mat-label>
+                                <mat-form-field appearance="fill" class="create-full-width">
+                                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="Zipcode" keyPrevent [Alphanumeric]="true" maxlength="5" formControlName="zipcode" required>
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(createInformationForm.get('zipcode'), 'contactzipcode')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.contact_info?.phone}}</mat-label>
+                                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info?.phone}}</mat-label>
+                                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="phone" maxlength="10" minlength="2" formControlName="phone" keyPrevent [OnlyNumber]="true" required>
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(createInformationForm.get('phone'), 'contactphones')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </form>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab [disabled]="isSelected(1)" label="{{static_data?.create_account?.tab_heading.heding_2}}">
+                    <ng-template matTabContent>
+                        <div>
+                            <h1 class="color-BrightBlue header-pad-top">
+                                {{static_data?.create_account?.set_password.heading}}
+                            </h1>
+                            <h4>
+                                {{static_data?.create_account?.set_password.login_Req}}</h4>
+                        </div>
+                        <form class="create-form" id="create-info" autocomplete="off" [formGroup]="setPasswordForm">
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.set_password.email}}</mat-label>
+                                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.set_password.email}}</mat-label>
+                                    <input matInput type="email" autocomplete="off" autofocus form-fields placeholder="" id="email" formControlName="email" required>
+                                    <!-- <mat-error class="error">
+                    {{errorService.checkErrorMessage(setPasswordForm.get('email'), 'setpasswordemail')}}
+                  </mat-error> -->
+                                    <mat-error *ngIf="setPasswordForm.controls.email.errors && (setPasswordForm.controls.email.dirty || setPasswordForm.controls.email.touched)">
+                                        <span *ngIf="setPasswordForm.controls.email.errors.required">
+                    {{errorService.checkErrorMessage(setPasswordForm.get('email'), 'setpasswordemail')}}
+                  </span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.set_password.password}}</mat-label>
+                                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.set_password.password}}</mat-label>
+                                    <input matInput [type]="pshow ? 'password' : 'text'" id="password" formControlName="password" name="password" autofocus form-fields placeholder="" required>
+                                    <mat-icon matSuffix (click)="pshow = !pshow">{{pshow ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    <mat-error class="error">
+                                        {{errorService.checkErrorMessage(setPasswordForm.get('password'), 'setpasswordpassword')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="flex">
+                                <mat-label class="width-20">{{static_data?.create_account?.set_password.confirm_password}}</mat-label>
+                                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.set_password.confirm_password}}</mat-label>
+                                    <input matInput [type]="hide ? 'password' : 'text'" id="confirmpassword" formControlName="confirmpassword" (focusout)="comparePassword()" name="confirmpassword" autofocus form-fields placeholder="" required>
+                                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                                    <mat-error *ngIf="setPasswordForm.controls.confirmpassword.errors && (setPasswordForm.controls.confirmpassword.dirty || setPasswordForm.controls.confirmpassword.touched)">
+                                        <span *ngIf="setPasswordForm.controls.confirmpassword.errors.required">
+                      {{errorService.checkErrorMessage(setPasswordForm.get('confirmpassword'),
+                      'setpasswordconfirmpassword')}}</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <span class="error-cnfrm" *ngIf="passwordCompare && setPasswordForm.controls.password.valid && setPasswordForm.controls.confirmpassword.value.length"> Password doesn't match </span>
+                        </form>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab [disabled]="isSelected(2)" label="{{static_data?.create_account?.tab_heading.heding_3}}">
+                    <ng-template matTabContent>
+                        <h1 class="color-BrightBlue header-pad-top">
+                            {{static_data?.create_account?.user_type.heading}}
+                        </h1>
+                        <mat-radio-group aria-labelledby="mat-radio-group-label" class="mat-radio-group radio-btn" [(ngModel)]="typeID">
+                            <mat-radio-button class="mat-radio-button" *ngFor="let user of getUserType" [value]="user.userTypeId" (change)="changeType()">
+                                <p class="size-18 p-color" style="margin-bottom: 3%;">{{user.userTypeName}}
+                                    <mat-icon class="help-icon" *ngIf="user.userTypeId == 'USER-FCE'" matsuffix>help</mat-icon>
+                                </p>
+                                <p class="p-color">{{user.description}}</p>
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab [disabled]="isSelected(3)" label="{{static_data?.create_account?.tab_heading?.heding_4}}">
+                    <ng-template matTabContent>
+                        <!-- ////// -->
+                        <!-- IEF -->
+                        <div *ngIf="showIEF">
+                            <h1 class="color-BrightBlue header-pad-top">
+                                {{static_data?.create_account?.additional_information_IEF.heading}}
+                            </h1>
+                            <form class="create-form" id="create-info" autocomplete="off" [formGroup]="independentExpenditureForm">
+                                <h3 class="header-pad-top">
+                                    {{static_data?.create_account?.additional_information_IEF.filling_as}}
+                                </h3>
+                                <div class="flex">
+                                    <mat-label class="width-20">{{static_data?.create_account?.additional_information_IEF.filer_type}}
+                                    </mat-label>
+                                    <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                        <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.additional_information_IEF.filer_type}}</mat-label>
+                                        <mat-select formControlName="filerType" (selectionChange)="changevalue()">
+                                            <mat-option *ngFor="let type of filerTypes" [value]="type.lookUpTypeId">
+                                                {{type.lookUpName}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <!-- <mat-error class="error">
+                    {{errorService.checkErrorMessage(createInformationForm.get('firstName'), 'firstName')}}
+                  </mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="flex" *ngIf="filerRole == 'FT-IND'">
+                                    <mat-label class="width-20">{{static_data?.create_account?.additional_information_IEF.occupation}}
+                                    </mat-label>
+                                    <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                        <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.additional_information_IEF.occupation}}
+                                        </mat-label>
+                                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="occupation" formControlName="occupation" required>
+                                        <mat-error class="error">
+                                            {{errorService.checkErrorMessage(independentExpenditureForm.get('occupation'), 'occupation')}}
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="flex" *ngIf="filerRole == 'FT-IND'">
+                                    <mat-label class="width-20"> {{static_data?.create_account?.additional_information_IEF.employer}}
+                                    </mat-label>
+                                    <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                        <mat-label class="width-20" class="visuallyhidden"> {{static_data?.create_account?.additional_information_IEF.employer}}
+                                        </mat-label>
+                                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="employer" formControlName="employer" required>
+                                        <mat-error class="error">
+                                            {{errorService.checkErrorMessage(independentExpenditureForm.get('employer'), 'employer')}}
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="flex" *ngIf="filerRole == 'FT-ORG'">
+                                    <mat-label class="width-20">
+                                        {{static_data?.create_account?.additional_information_IEF.organizationName}}</mat-label>
+                                    <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                                        <mat-label class="width-20" class="visuallyhidden">
+                                            {{static_data?.create_account?.additional_information_IEF.organizationName}}</mat-label>
+                                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="organization" formControlName="employer" required>
+                                        <mat-error class="error">
+                                            {{errorService.checkErrorMessage(independentExpenditureForm.get('employer'), 'orgName')}}
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- //end IEF -->
+
+                        <!-- Start ////create account 4 - lobbyist & Committee/// -->
+                        <!-- Start ////create account 4 - select or create screen/// -->
+                        <div class="select-mar" *ngIf="!showCommitteOrLobby && !showIEF">
+                            <app-select-create-commitee-lobby [showCommitee]="showCommitee" (selectedEmitter)="showSelectOrCreate($event)">
+                            </app-select-create-commitee-lobby>
+                        </div>
+                        <!-- End ////create account 4 - select or create screen/// -->
+
+                        <!-- Start ////create account 4 - select screen/// -->
+                        <div class="select-mar" *ngIf="showCommitteOrLobby && !showIEF">
+                            <app-search-committee-lobbyist [showCommitee]="showCommitee" [options]="getCommitteeList" [lobbyOption]="getLobbyList" [selectedItems]="selectedCommLobbList" (addSelectedEmitter)="addSelectedtoList($event)" (navigatePath)="navigate($event)" (addSearchEmitter)="addSearchEmitter($event)">
+                            </app-search-committee-lobbyist>
+                        </div>
+                        <div class="select-mar" *ngIf="showCommitteOrLobby && !showIEF">
+                            <app-select-list-committee-lobbyist [showCommitee]="showCommitee" [CommLobbEntityList]="selectedCommLobbList" (deleteSelectedEmitter)="deleteSelectedList($event)">
+                            </app-select-list-committee-lobbyist>
+                        </div>
+                        <!-- <div>
+                <span class="btn-mar-back">
+                  <button mat-button color="primary">back</button>
+                </span>
+                <span class="btn-mar-align">
+                  <button id="selectNext" type="button" (click)="switchkey()" mat-flat-button color="primary"
+                    class="nrmlfillbtn">Next</button>
+                </span>
+              </div> -->
+                        <!-- End ////create account 4 - select screen/// -->
+                        <!-- End ////create account 4 - select screen/// -->
+
+
+
+                        <!-- END  ////create account 4 - lobbyist & Committee/// -->
+                    </ng-template>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+        <!-- Confirm and Submit -->
+
+        <div class="width-100 account-inner-view" *ngIf="!showTab && !confirm">
+            <div>
+                <h1 class="color-BrightBlue create-font-style">{{static_data?.create_account?.confirm_submit.submit}}</h1>
+                <h1 class="color-BrightBlue header-pad-top">
+                    {{static_data?.create_account?.contact_info.heading}}
+                </h1>
+                <form class="create-form" id="create-info" autocomplete="off" [formGroup]="contactSubmitForm">
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.first_name}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.first_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.contact_info.first_name}}" id="FirstName" formControlName="firstName" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contactSubmitForm.get('firstName'), 'contactfirstName')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.contact_info.last_name}}" id="LastName" formControlName="lastName" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contactSubmitForm.get('lastName'), 'contactlastName')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.mail_addrs_1}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.contact_info.mail_addrs_1}}" id="MailingAdd1" formControlName="mailingAdd1" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contactSubmitForm.get('mailingAdd1'), 'mailingAdd1')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.mail_addrs_2}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.contact_info.mail_addrs_2}}" id="MailingAdd2" formControlName="mailingAdd2" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contactSubmitForm.get('mailingAdd2'), 'mailingAdd2')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.city}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.contact_info.city}}" id="City" formControlName="city">
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.state}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.contact_info.state}}" id="State" formControlName="state">
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.zipcode}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.contact_info.zipcode}}" id="Zipcode" formControlName="zipcode">
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.phone}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.contact_info.phone}}" id="phone" formControlName="phone" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contactSubmitForm.get('phone'), 'phone')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.create_account?.set_password.email}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="{{static_data?.create_account?.set_password.email}}" id="email" required formControlName="email" [disabled]='true' readonly>
+                        </mat-form-field>
+                    </div>
+                </form>
+
+                <!-- Selected Lobby or commity list -->
+                <h1 class="color-SkyBlue header-pad-top" *ngIf="selectedCommLobbList.length">
+                    {{showCommitee == false ?static_data?.create_account.confirm_submit.select_lobby:static_data?.create_account.confirm_submit.select_committee}}
+                </h1>
+                <div>
+                    <app-select-list-committee-lobbyist [showCommitee]="showCommitee" [CommLobbEntityList]="selectedCommLobbList" (deleteSelectedEmitter)="deleteSelectedList($event)">
+                    </app-select-list-committee-lobbyist>
+                </div>
+                <span>
+          {{static_data?.create_account.confirm_submit.instruction}}
+        </span>
+                <!-- <div>
+          <span class="btn-mar-back">
+            <button mat-button color="primary" (click)="switchkey()">back</button>
+          </span>
+          <span class="btn-mar-align">
+            <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn">Submit</button>
+          </span>
+        </div> -->
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex bottom-btn margin-bottom-25" *ngIf="!confirm">
+    <span>
+    <a *ngIf="!hideBack" class="color-BrightBlue back-btn" href="javascript:void(0)" (click)="back()">{{static_data?.button?.back}}</a>
+  </span>
+    <span *ngIf="!hideNext">
+    <button id="addInfo" *ngIf="showTab" type="button" mat-flat-button color="primary" (click)="next()"
+      class="nrmlfillbtn">{{static_data?.button?.next}}</button>
+    <button id="addInfo" *ngIf="!showTab" type="button" mat-flat-button color="primary" (click)="submit()"
+      class="nrmlfillbtn">{{static_data?.button?.submit}}</button>
+  </span>
+</div>
+<div class="cnfrm-screen" *ngIf="confirm">
+    <app-confirmation-screen [type]="confirmSubmit" [user]="account">
+
+    </app-confirmation-screen>
+</div>

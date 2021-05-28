@@ -1,0 +1,42 @@
+  .header-pad-top {
+    padding-top: 15px;
+    font-size: 20px;
+    color: #005596;
+    font-family: 'open sans', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  .btn-mar-align {
+    margin-left: 70%;
+  }
+
+  .material-icons{
+    color: #005596;
+  }
+
+  .tab-width {
+      width: 50%;
+  }
+
+  .btn-mar-back {
+    margin-left: 15px;
+  }
+
+  .col-sm-3, .col-sm-2{
+    text-align: right;
+  }
+
+  #cancel-btn{
+    padding-left: 435px;
+  }
+  #save-btn{
+    padding-left: 25px;
+  }
+  mat-form-field{
+    width: 400px;
+  }
+  ::ng-deep .mat-form-field-subscript-wrapper {
+    margin-top: 0.2em !important;
+  }

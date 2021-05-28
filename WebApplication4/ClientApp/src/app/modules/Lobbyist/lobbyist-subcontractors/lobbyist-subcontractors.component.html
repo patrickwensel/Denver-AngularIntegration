@@ -1,0 +1,140 @@
+<div class="regisLobby">
+    <h2 class="header-pad-top font-400">
+        {{static_data.lobbyist.register.subContract_lobby}}
+    </h2>
+</div>
+<div>
+    <p class="instruction-modules color-BrightBlue">Instructions go here ...</p>
+</div>
+
+<table mat-table [dataSource]="lobbySubcontractorList" multiTemplateDataRows>
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.lobbyist.subcontractors.type}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subcontractorName">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.lobbyist.subcontractors.subcontractor_name}}</th>
+        <td mat-cell *matCellDef="let element"> {{element.subcontractorName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.lobbyist.subcontractors.phone_number}}</th>
+        <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.lobbyist.subcontractors.email}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.lobbyist.clients.action}}</th>
+        <td mat-cell *matCellDef="let element">
+            <span class="material-icons pointer" (click)="editSubcontractor(element)">mode_edit_outline</span>&nbsp;&nbsp;
+            <span class="material-icons pointer" (click)="openConfirmationModal(element.id)">delete_forever</span>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="SubcontractorLobby"></tr>
+    <tr mat-row *matRowDef="let row; columns: SubcontractorLobby;"></tr>
+</table>
+
+
+<div class="regisLobby">
+    <h2 class="header-pad-top font-400">
+        {{static_data.lobbyist.register.add_new_subcontractor}}
+    </h2>
+</div>
+<br><br>
+<form class="create-form" id="create-info" autocomplete="off" [formGroup]="LobbySubcontractorsForm">
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-2">
+                <mat-label>{{static_data.lobbyist.subcontractors.type}}</mat-label>
+            </div>
+            <div class="col-sm-10">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select formControlName="type">
+                        <mat-option value="Individual">Individual</mat-option>
+                        <mat-option value="Organization">Organization</mat-option>
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(LobbySubcontractorsForm.get('type'), 'type')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-2">
+                <mat-label>{{static_data.lobbyist.subcontractors.subcontractor_name}}</mat-label>
+            </div>
+            <div class="col-sm-10">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <input matInput type="text" autocomplete="off" form-fields id="subcontractorName" formControlName="subcontractorName" required keyPrevent [Alphanumeric]="true" maxlength="120" minlength="2">
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(LobbySubcontractorsForm.get('subcontractorName'), 'subcontractorName')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-2">
+                <mat-label>{{static_data.lobbyist.subcontractors.phone_number}}</mat-label>
+            </div>
+            <div class="col-sm-10">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <input matInput type="text" autocomplete="off" form-fields id="phoneNumber" formControlName="phoneNumber" required keyPrevent [OnlyNumber]="true" maxlength="10" minlength="10">
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(LobbySubcontractorsForm.get('phoneNumber'), 'phoneNumber')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-2">
+                <mat-label>{{static_data.lobbyist.subcontractors.email}}</mat-label>
+            </div>
+            <div class="col-sm-10">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <input matInput type="text" autocomplete="off" form-fields id="email" formControlName="email" required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(LobbySubcontractorsForm.get('email'), 'email')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <span id="cancel-btn">
+        <a href="javascript:void(0)" (click)="validateCancel()"> {{static_data.lobbyist.register.cancel}}</a>
+      </span>
+        <span id="save-btn">
+        <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn"
+        (click)="ValidateSubcontractorForm()"> {{static_data.lobbyist.register.save}}</button>
+      </span>
+    </div>
+
+</form>
+<br><br><br>
+<div>
+    <span class="btn-mar-back">
+      <a href="javascript:void(0)" (click)="goBack()"> {{static_data.lobbyist.register.back}}</a>
+    </span>
+    <span class="btn-mar-align">
+      <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn"
+      (click)="ValidateSubmitSubContractor()"> {{static_data.lobbyist.register.next}}</button>
+    </span>
+</div>

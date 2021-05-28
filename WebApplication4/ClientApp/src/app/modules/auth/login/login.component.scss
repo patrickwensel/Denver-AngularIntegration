@@ -1,0 +1,36 @@
+.mat-icon-button ::ng-deep .mat-button-focus-overlay {
+    display: none;
+    outline: none;
+}
+.mat-icon {
+    top: 6px;
+    position: relative;
+}
+.account-modules h1 {
+    font-size: 20px;
+    color: #005596;
+    font-family: 'open sans', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.account-modules p {
+    font-size: 14px;
+    font-family: 'open sans', sans-serif;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+::ng-deep .mat-form-field-wrapper{
+    margin-bottom: -0.8em;
+ }
+
+ .mar-height {
+     margin-top: 6%;
+ }
+ 
+.visuallyhidden {
+    display: none;
+  }
+  input[type="text"]{
+    text-transform: none !important;
+  }

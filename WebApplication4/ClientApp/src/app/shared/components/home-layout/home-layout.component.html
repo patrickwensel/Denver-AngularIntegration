@@ -1,0 +1,107 @@
+<!-- <app-nav-layout></app-nav-layout> -->
+<div>
+    <!-- style="height: 100vh;" -->
+    <mat-toolbar color="primary" style="background-color: #0f5597; position: fixed; z-index: 50;">
+        <!-- <span class="header-with">{{static_data.header_section.heading}}</span> -->
+        <span class="header-with">
+            <a href="javascript:void(0)">
+                <img src="assets/images/denver_logo.png" title="Logo" alt="LOGO">
+            </a>
+        </span>
+
+        <span class="example-spacer"></span>
+
+        <div class="btn-pad">
+            <span class="example-spacer"></span><button id="btnSpnaish" style="   border: 1px solid white !important;"
+                class="btn-border-clr" type="button" mat-raised-button color="primary"
+                class="nrmlfillbtn">{{static_data.header_section.btn_spanish}}</button>
+        </div>
+        <div class="btn-pad">
+            <span class="example-spacer"></span><button id="btnSpnaish" style="   border: 1px solid white !important;"
+                class="btn-border-clr" type="button" mat-raised-button color="primary"
+                class="nrmlfillbtn">{{static_data.header_section.btn_help}}</button>
+        </div>
+        <div class="btn-pad" id="closedir">
+            <span class="example-spacer"></span><button id="btnSpnaish"
+                style="border: 1px solid white !important;background-color: white;color: #3f51b5;"
+                class="btn-border-clr" type="button" mat-raised-button color="primary" clickOutside (clickOutside)= "showProfile = false"
+                (click)="showProfile ? showProfile = false : showProfile = true" class="nrmlfillbtn">User
+                Profile</button>
+        </div>
+
+        <div fxShow="true" fxHide.lt-md="true">
+            <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+            <!-- <a href="#" mat-button>Menu Item 1</a>
+        <a href="#" mat-button>Menu Item 2</a> -->
+        </div>
+
+        <!-- <div fxShow="true" fxHide.gt-sm="true">
+            <a href="#" (click)="sidenav.toggle()">Show Side Menu</a>
+        </div> -->
+    </mat-toolbar>
+    <!-- <mat-sidenav-container class="example-container sidenavcontainer" >
+        <mat-sidenav opened mode="side" class="sidanavleft">
+            <div fxLayout="column" class="sidenavestyle">
+                <div [ngClass]="{sidenav: selectedindex == 0, sidenavTransparent:  selectedindex != 0}" (click)="clickedlabel(0)">
+                    <a  mat-button class= "txt-align" >
+                        <mat-icon matsuffix  >groups</mat-icon> {{static_data.header_section.managecomponent}}
+                    </a>
+                </div>
+                <div  [ngClass]="{sidenav: selectedindex == 1, sidenavTransparent:  selectedindex != 1}"  (click)="clickedlabel(1)"  >
+                    <a mat-button class="txt-align">
+                        <mat-icon matsuffix>text_snippet</mat-icon> {{static_data.header_section.reviewFilling}}
+                    </a>
+                </div>
+                <div   [ngClass]="{sidenav: selectedindex == 2, sidenavTransparent:  selectedindex != 2}" (click)="clickedlabel(2)" >
+                    <a mat-button class="txt-align" >
+                        <mat-icon matsuffix>attach_money</mat-icon>{{static_data.header_section.payment}}
+                    </a>
+                </div>
+                <div  [ngClass]="{sidenav: selectedindex == 3, sidenavTransparent:  selectedindex != 3}" (click)="clickedlabel(3)" >
+                    <a  mat-button class="txt-align"  >
+                        <mat-icon matsuffix>notifications</mat-icon>{{static_data.header_section.notification}}
+                    </a>
+                </div>
+                <div  [ngClass]="{sidenav: selectedindex == 3, sidenavTransparent:  selectedindex != 3}" (click)="clickedlabel(3)" >
+                    <a  mat-button class="txt-align"  >
+                        <mat-icon matsuffix>calendar_today</mat-icon>{{static_data.header_section.systemManagement}}
+                    </a>
+                </div>
+                <div [ngClass]="{sidenav: selectedindex == 4, sidenavTransparent:  selectedindex != 4}" (click)="clickedlabel(4)" >
+                    <a  mat-button class="txt-align" >
+                        <mat-icon matsuffix>event</mat-icon>{{static_data.header_section.calendar}}
+                    </a>
+                </div>
+                <a mat-button></a>
+            </div>
+        </mat-sidenav>
+       
+        <router-outlet></router-outlet>
+    </mat-sidenav-container> -->
+    <!-- <div class="noentity">
+        <p class="text" *ngIf="noentity == 'true'">{{static_data.staticmessages.noAffliatedEntityMsg}}</p>
+    </div> -->
+    <app-sidenavcomponent *ngIf="noentity != 'true'"></app-sidenavcomponent>
+
+</div>
+
+
+
+<div [hidden]="!showProfile" class="profile-content box-style" id="profileMenu" >
+    <div class="width-100 margin-bottom-0 ">
+        <div class="padding-10">
+            <div class="width-100 margin-bottom-0 mar-over">
+                <button mat-button (click)="switchCommittee()">Switch Committee</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button mat-button (click)="changePwd()">Change Password</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button mat-button (click)="logout()">Log Out</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button mat-button>Help</button>
+            </div>
+        </div>
+    </div>
+</div>

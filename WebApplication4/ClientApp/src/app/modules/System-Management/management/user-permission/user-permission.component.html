@@ -1,0 +1,68 @@
+<h2 class="managemnet-title left-mar"><mat-icon matPrefix class="size-19 pointer" (click)="back()">arrow_back_ios</mat-icon>
+  User Permission Settings
+</h2>
+<div class="margin-bottom-15">
+<table mat-table [dataSource]="dataUserPermissionList" multiTemplateDataRows>
+    <ng-container matColumnDef="ComponentName">
+      <th mat-header-cell *matHeaderCellDef> Component Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.modulename}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Candidate">
+      <th mat-header-cell *matHeaderCellDef> Candidate</th>
+      <td mat-cell *matCellDef="let element"> 
+        <mat-icon *ngIf="element.candidate == 0">block</mat-icon> 
+        <img *ngIf="element.candidate == 1" src="assets/images/View.svg">
+        <img *ngIf="element.candidate == 2" src="assets/images/Key.svg">
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Treasurer">
+      <th mat-header-cell *matHeaderCellDef>Treasurer </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *ngIf="element.treasurer == 0">block</mat-icon> 
+        <img *ngIf="element.treasurer == 1" src="assets/images/View.svg">
+        <img *ngIf="element.treasurer == 2" src="assets/images/Key.svg">
+       </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="CommitteeOfficer">
+      <th mat-header-cell *matHeaderCellDef> CommitteeOfficer </th>
+      <td mat-cell *matCellDef="let element"> 
+        <mat-icon *ngIf="element.committeeOfficer == 0">block</mat-icon> 
+        <img *ngIf="element.committeeOfficer == 1" src="assets/images/View.svg">
+        <img *ngIf="element.committeeOfficer == 2" src="assets/images/Key.svg">
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="PrimaryLobbyst">
+      <th mat-header-cell *matHeaderCellDef> PrimaryLobbyst</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *ngIf="element.primaryLobbyList == 0">block</mat-icon> 
+        <img *ngIf="element.primaryLobbyList == 1" src="assets/images/View.svg">
+        <img *ngIf="element.primaryLobbyList == 2" src="assets/images/Key.svg">
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Lobbyist">
+      <th mat-header-cell *matHeaderCellDef> Lobbyist</th>
+      <td mat-cell *matCellDef="let element"> 
+        <mat-icon *ngIf="element.lobbyist == 0">block</mat-icon> 
+        <img *ngIf="element.lobbyist == 1" src="assets/images/View.svg">
+        <img *ngIf="element.lobbyist == 2" src="assets/images/Key.svg">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Official">
+      <th mat-header-cell *matHeaderCellDef> Official</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon *ngIf="element.official == 0">block</mat-icon> 
+        <img *ngIf="element.official == 1" src="assets/images/View.svg">
+        <img *ngIf="element.official == 2" src="assets/images/Key.svg">
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;" class="student-element-row"
+        ></tr>
+  </table>
+</div>

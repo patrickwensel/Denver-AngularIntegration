@@ -1,0 +1,121 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  multiTemplateDataRows
+>
+  <ng-container matColumnDef="toggle">
+    <th mat-header-cell *matHeaderCellDef>
+      <span class="visuallyhidden">toggle</span>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <a
+        href="javascript:void()"
+        (click)="element.isExpanded = !element.isExpanded"
+      >
+        <mat-icon *ngIf="element.isExpanded">expand_less</mat-icon>
+        <mat-icon *ngIf="!element.isExpanded">expand_more</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>First Name</th>
+    <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef>Last Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="OfficerType">
+    <th mat-header-cell *matHeaderCellDef>Officer Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.OfficerType }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef><b>Description</b></th>
+    <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [attr.colspan]="committeegrid.length"
+    >
+      <div
+        *ngIf="element.isExpanded"
+        class="row student-element-detail"
+        [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'"
+      >
+        <div class="container">
+          <div class="categories">
+            <div class="categories_item">
+              <div>
+                <label class="toggle-font-weght">Address 1</label>
+              </div>
+              <br />
+              <div class="mar-height">{{ element.address1}}</div>
+            </div>
+            <div class="categories_item">
+              <div>
+                <label class="toggle-font-weght"> Address 2</label>
+              </div>
+              <br />
+              <div class="mar-height">{{ element.address2}}</div>
+            </div>
+
+            <div class="categories_item">
+              <div>
+                <label class="toggle-font-weght"> City </label>
+              </div>
+              <br />
+              <div class="mar-height">{{ element.city}}</div>
+            </div>
+
+            <div class="categories_item">
+              <div>
+                <label class="toggle-font-weght"> State </label>
+              </div>
+              <br />
+              <div class="mar-height">{{ element.state}}</div>
+            </div>
+
+            <div class="categories_item">
+              <div>
+                <label class="toggle-font-weght"> Zip </label>
+              </div>
+              <br />
+              <div class="mar-height">{{ element.zipcode}}</div>
+            </div>
+
+            <div class="categories_item">
+              <div>
+                <label class="toggle-font-weght"> Email</label>
+              </div>
+              <br />
+              <div class="mar-height">{{ element.email}}</div>
+            </div>
+
+            <div class="categories_item">
+              <div>
+                <label class="toggle-font-weght"> Phone</label>
+              </div>
+              <br />
+              <div class="mar-height">{{ element.phone}}</div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="committeegrid"></tr>
+  <tr mat-row *matRowDef="let row; columns: committeegrid"></tr>
+
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"
+  [ngClass]="{'hide':!row.isExpanded}"></tr>
+
+</table>

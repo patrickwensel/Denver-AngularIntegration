@@ -1,0 +1,15 @@
+<div class="container  ">
+<div> <h3 class="title">{{static_data.header_section.publicfunding}}</h3></div>
+<div>
+        <app-navigatescreen  [candidateLabels]= "labels" ></app-navigatescreen>
+
+</div>
+
+<div> <button class="revokebtn" mat-raised-button>{{static_data.header_section.revokestatus}}</button></div>
+<div class="backbtn">
+                <span>
+                        <a  class="color-BrightBlue back-btn" 
+                                (click)="back()">{{static_data?.button?.back}}</a>
+                </span>
+        </div>
+</div>

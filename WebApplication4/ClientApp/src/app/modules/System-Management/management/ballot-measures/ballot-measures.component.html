@@ -1,0 +1,174 @@
+<div class="container" #scroll style="overflow:auto">
+<div class="regisLobby">
+    <h2 class="managemnet-title"><mat-icon matPrefix class="size-19 pointer" (click)="back()">arrow_back_ios</mat-icon>
+        {{static_data.system_Management.ballot_Issues_heading.ballot_Issues}}
+    </h2>
+</div>
+<br>
+<div class="tab-width">
+    <form class="create-form" id="create-info" autocomplete="off" [formGroup]="ballotIssueForm">
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.system_Management.ballot_Issues_heading.issue_id}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.system_Management.ballot_Issues_heading.issue_id}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="issueNumber"
+                    formControlName="issueNumber" maxlength="10" required keyPrevent [OnlyNumber]="true">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(ballotIssueForm.get('issueNumber'), 'issueNumber')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.system_Management.ballot_Issues_heading.issue_Name}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.system_Management.ballot_Issues_heading.issue_Name}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="issueName"
+                    formControlName="issueName" maxlength="120" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(ballotIssueForm.get('issueName'), 'issueName')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.system_Management.ballot_Issues_heading.description}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.system_Management.ballot_Issues_heading.description}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="description"
+                    formControlName="description" maxlength="200" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(ballotIssueForm.get('description'), 'description')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.system_Management.ballot_Issues_heading.election_cycle}}</mat-label>
+            <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.system_Management.ballot_Issues_heading.election_cycle}}</mat-label>
+                <mat-select formControlName="electionCycle">
+                      <mat-option *ngFor="let election of getElectionDate" [value]="election.name">
+                        {{election.name}}
+                      </mat-option>
+                </mat-select>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(ballotIssueForm.get('electionCycle'), 'electionCycle')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="btn-cancel-alg">
+            <!-- <span class="btn-mar-back">
+                <button mat-button color="primary" >Cancel</button>
+            </span> -->
+            <span id="save-btn">
+                <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn"
+                  (click)="save()">{{editGrid ? static_data.button.update : static_data.button.add}}</button>
+            </span>
+        </div>
+
+        <div class=" bottom-btn">
+            <!-- <span style="padding-left: 15%;">
+                <a class="color-BrightBlue back-btn" href="javascript:void(0)">{{static_data.button.back}}</a>
+            </span> -->
+            <!-- <span>
+                <button id="addInfo" type="button" mat-flat-button color="primary"
+                    class="nrmlfillbtn">{{static_data.button.next}}</button>
+            </span> -->
+        </div>
+
+    </form>
+</div>
+    </div>
+<div>
+    <!-- style="overflow-y: auto;height: 50vh;width: 100%;" -->
+<table mat-table [dataSource]="dataBallotList" multiTemplateDataRows >
+    <ng-container matColumnDef="toggle">
+        <th mat-header-cell *matHeaderCellDef> <span class="visuallyhidden">toggle</span></th>
+        <td mat-cell *matCellDef="let element">
+            <a href="javascript:void()" (click)="element.isExpanded = !element.isExpanded">
+                <mat-icon *ngIf="element.isExpanded">expand_less</mat-icon>
+                <mat-icon *ngIf="!element.isExpanded" (click)="getMatchingBallot(element.ballotIssueCode)">expand_more</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="ballotId">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.system_Management.ballot_Issues_heading.issue_id}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.ballotIssueCode}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="ballotIssue">
+        <th mat-header-cell *matHeaderCellDef>{{static_data.system_Management.ballot_Issues_heading.issue_Name}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.ballotIssue }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="electioncycle">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.system_Management.ballot_Issues_heading.election_cycle}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.electioncycle}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.system_Management.ballot_Issues_heading.description}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.system_Management.ballot_Issues_heading.action}} </th>
+        <td mat-cell *matCellDef="let element" class="click-hand">
+            <span class="material-icons" (click)="editOfficerForm(element)">mode_edit_outline</span>&nbsp;&nbsp;
+            <span class="material-icons" (click)="openConfirmationModal(element.ballotId)">delete_forever</span>
+        </td>
+
+    </ng-container>
+
+
+    <!-- Template for details row -->
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedStudentsColumnsList.length">
+
+            <div *ngIf="element.isExpanded" class="row student-element-detail"
+                [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+                <div class="container">
+                    <div class="categories">
+                        <div class="categories_item">
+                        </div>
+                        <div class="categories_item">
+                            <div><label
+                                    class="toggle-font-weght">{{static_data.system_Management.ballot_Issues_heading.committee_id}}</label>
+                            </div><br>
+                            <div class="mar-height "> {{matchingBallot.committeeID ? matchingBallot.committeeID : 'NA'}}</div>
+                        </div>
+                        <div class="categories_item">
+                            <div><label
+                                    class="toggle-font-weght">{{static_data.system_Management.ballot_Issues_heading.committee_Name}}</label>
+                            </div><br>
+                            <div class="mar-height "> {{matchingBallot.committeeName  ? matchingBallot.committeeName : 'NA'}}</div>
+                        </div>
+                        <div class="categories_item left-35"> 
+                            <div><label
+                                    class="toggle-font-weght">{{static_data.system_Management.ballot_Issues_heading.position}}</label>
+                            </div><br>
+                            <div class="mar-height "> {{matchingBallot.committeePosition  ? matchingBallot.committeePosition : 'NA'}}</div>
+                        </div>
+                        <div class="categories_item">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;" class="student-element-row"
+        [class.student-expanded-row]="element.isExpanded"></tr>
+
+    <!-- Extra row to show detail content column -->
+    <!-- <div *ngIf="isTableExpanded"> -->
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"
+        [ngClass]="{'hide':!row.isExpanded}"></tr>
+    <!-- </div> -->
+</table>
+</div>

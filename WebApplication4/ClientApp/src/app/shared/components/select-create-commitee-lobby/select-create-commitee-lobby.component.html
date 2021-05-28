@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="color-BrightBlue">
+        <div class="width-100">
+            <a>
+                <h3 class="create-font-style" (click)="showSelect(true)">{{showCommitee ==
+                    true?data.create_account.select_create_commitee.select_entity:data.create_account.select_create_lobbyist.select_entity}}
+                    <span class="navigation-align material-icons">navigate_next</span>
+                </h3>
+            </a>
+        </div>
+        <div class="width-100">
+            <a>
+                <h3 class="create-font-style" (click)="showSelect(false)">{{showCommitee ==
+                    true?data.create_account.select_create_commitee.create_entity:data.create_account.select_create_lobbyist.create_entity}}
+                    <span class="navigation-align material-icons">navigate_next</span>
+                </h3>
+            </a>
+        </div>
+    </div>
+</div>

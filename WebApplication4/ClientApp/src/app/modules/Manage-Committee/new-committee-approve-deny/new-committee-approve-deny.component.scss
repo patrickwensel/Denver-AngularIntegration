@@ -1,0 +1,90 @@
+.matform-Container{
+  padding-left: 100px;
+}
+
+.font-600{
+  font-weight: 600 !important;
+}
+
+.text-color {
+  color: #135fac;
+}
+
+.sub-section-3{
+  width:100%;
+}
+
+/// Classess
+
+// .mar-tp-header {
+//   margin-top: 3%;
+
+// }
+.padding-class{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.btn-join {
+border: 1px solid #0f5597 !important;color: #0f5597;background-color: #fafafa;
+}
+.sub-section-2{
+  width:40%;
+}
+
+.addnote-class {
+  width: 100%;
+  // padding: 12px 20px;
+  // margin: 8px 0;
+  height:100%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.subject-class {
+  width: 100%;
+  //padding: 12px 20px;
+  //margin: 8px 0;
+  height:100%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.download-button{
+  border:1px solid #005596;
+}
+.btn-class{
+  float:right;
+}
+
+.deactive-modal {
+  min-height: 90px;
+  resize: none !important;
+  padding: 15px 12px !important;
+  width:100%;
+  // @include regular-16;
+}
+.active-modal{
+  min-height: 50px;
+  resize: none !important;
+  padding: 15px 12px !important;
+  width:100%;
+}
+
+
+.navigatepadding {
+  padding-left: 20px;
+}
+.fontcolorblck {
+  color: #0f5597;
+  font-size: 19px;
+}
+.value {
+  // color: #0f5597;
+  float: right;
+  font-size: 19px;
+}

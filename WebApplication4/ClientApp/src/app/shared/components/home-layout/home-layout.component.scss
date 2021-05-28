@@ -1,0 +1,124 @@
+.txt-align {
+  text-align: left;
+}
+
+.btn-border-clr {
+  border: 1px solid white !important;
+}
+.btn-pad {
+  padding: 1%;
+}
+
+.header-with {
+  width: 100% !important;
+}
+.head-pad {
+  padding-top: 15px;
+}
+::ng-deep .mat-drawer {
+  border: 0.1px #005596 solid !important;
+}
+
+.timeline-container {
+  z-index: -1;
+  background: #fff;
+  bottom: 0px;
+  right: 0px;
+  height: 100%;
+  width: 300px;
+  border-left: 1px solid #ebebeb;
+  box-shadow: 0 1px 6px 0 rgba(119, 119, 119, 0.28);
+  padding: 40px 15px 5px 10px;
+  display: inline-block;
+  top: 9%;
+  position: absolute;
+}
+
+.rightheadpad {
+  padding: 4px 8px 4px 8px;
+}
+
+.msgtab {
+  display: inline-block;
+  height: 82px;
+  width: 100%;
+  // border-radius: 5px;
+  background-color: #dbd7d7;
+  margin-bottom: 10px;
+  border-left-color: coral;
+  border-left-width: 10px;
+  border-left-style: solid;
+}
+
+.appmainlayout-wrapper {
+  // margin-left: -14%;
+  // margin-right: 10%;
+  // padding-right: 35%;
+  // padding-top: 3%;
+  // padding-left: 2%
+}
+
+.example-container {
+  position: absolute;
+  top: 8%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // z-index: -1;
+}
+.sidenav {
+  border-left-color: coral;
+  border-left-width: 10px;
+  border-left-style: solid;
+  margin-left: 12px;
+}
+
+.sidenavTransparent {
+  border-left-color: transparent;
+  border-left-width: 10px;
+  border-left-style: solid;
+  margin-left: 12px;
+}
+
+.msgbar {
+  width: 20%;
+  padding: 45px 15px;
+}
+
+.msgfont {
+  color: rgb(15 85 151);
+  font-size: 25px;
+}
+
+.sidenavestyle {
+  margin-top: 40%;
+  color: rgb(15 85 151);
+}
+
+.sidanavleft {
+  width: 20%;
+}
+
+.sidenavcontainer {
+  padding-top: 3%;
+}
+/* padding-left: 10px; */
+
+.noentity {
+  position: absolute;
+  top: 50%;
+  left: 18%;
+}
+
+.text {
+    font-size: 18px;
+    color: #0b0202;
+}
+      /* padding-left: 10px; */
+.mar-over {
+    margin: 4px;
+}
+
+.box-style {
+    border: 1px solid #0f5597;border-radius: 4px;
+}

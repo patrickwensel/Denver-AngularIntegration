@@ -1,0 +1,27 @@
+<div class="container  ">
+        <div class="existcommiteeinfo">
+                <h5 class="head name"> Jon Rios for City Council 2020</h5>
+                <h4 class="head title"> {{static_data.header_section.Committee_information}}</h4>
+  <app-committee-info [Id]='id' [Type]='type' (committeeType)="getCommitteeType($event)"></app-committee-info>
+                <!-- <app-current-committee-information></app-current-committee-information> -->
+
+        </div>
+        <div class="navlabels">
+                <div *ngFor="let item of candidateLabels" class="navigatepadding pointer">
+                        <div (click)= "gotoScreen(item)" > 
+                            <h2 class="fontcolorblck"> {{item.displayName}} <span class="material-icons">
+                                    arrow_forward_ios
+                                </span> </h2>
+                        </div>
+                        <hr>
+                    </div>
+
+        </div>
+
+        <div class="backbtn">
+                <span>
+                        <a  class="color-BrightBlue back-btn" 
+                                (click)="back()">{{static_data?.button?.back}}</a>
+                </span>
+        </div>
+</div>

@@ -1,0 +1,75 @@
+<div>
+    <div fxLayout="row" fxLayout.xs="column" class="mar-tp-header">
+        <h2 class="account-modules text-color font-sze-large">{{static_data.Switch_Committee.reg_or_join}}</h2>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+
+
+        <div fxFlex="38" fxFlex.sm="90" fxFlex.xs="90">
+            <button id="btnSpnaish" fxFlex="90"
+                style="white-space: initial;font-weight: 600;font-size: medium;height: 50px !important;border: 1px solid #0f5597 !important;color: #0f5597;background-color: #fafafa;"
+                class="btn-border-clr font-600" type="button"  color="primary"
+                (click)="committeeNewJoinEvent('new',1)"
+                class="nrmlfillbtn">{{static_data.Switch_Committee.new_comm}}</button>
+        </div>
+        <div fxFlex="38" fxFlex.sm="90" fxFlex.xs="90">
+            <button id="btnSpnaish" fxFlex="90"
+                style="white-space: initial;font-weight: 600;font-size: medium;height: 50px !important;border: 1px solid #0f5597 !important;color: #0f5597;background-color: #fafafa;"
+                class="btn-border-clr" type="button" mat-raised-button color="primary"
+                (click)="committeeNewJoinEvent('join',1)"
+                class="nrmlfillbtn">{{static_data.Switch_Committee.join_comm}}</button>
+        </div>
+    </div>
+
+    <div fxLayout="row" class="mar-tp-header"  fxLayout.xs="column" fxLayout.sm="column">
+
+
+        <div fxFlex="38" fxFlex.sm="90" fxFlex.xs="90">
+            <button id="btnSpnaish" fxFlex="90"
+                style="white-space: initial;font-weight: 600;font-size: medium;height: 50px !important;border: 1px solid #0f5597 !important;color: #0f5597;background-color: #fafafa;"
+                class="btn-border-clr" type="button"  color="primary"
+                (click)="committeeNewJoinEvent('new',2)"
+                class="nrmlfillbtn">{{static_data.Switch_Committee.new_indipendent}}</button>
+        </div>
+        <div fxFlex="38" fxFlex.sm="90">
+            <button id="btnSpnaish" fxFlex="90"
+                style="white-space: initial;font-weight: 600;font-size: medium;height: 50px !important;border: 1px solid #0f5597 !important;color: #0f5597;background-color: #fafafa;"
+                class="btn-border-clr" type="button"  color="primary"
+                (click)="committeeNewJoinEvent('join',2)"
+                class="nrmlfillbtn">{{static_data.Switch_Committee.join_indipendent}}</button>
+        </div>
+    </div>
+
+    <div fxLayout="row" class="mar-tp-header"   fxLayout.xs="column" fxLayout.sm="column">
+
+
+        <div fxFlex="38" fxFlex.sm="90" fxFlex.xs="90">
+            <button id="btnSpnaish" fxFlex="90"
+                style="white-space: initial;font-weight: 600;font-size: medium;height: 50px !important;border: 1px solid #0f5597 !important;color: #0f5597;background-color: #fafafa;"
+                class="btn-border-clr" type="button"  color="primary"
+                (click)="committeeNewJoinEvent('new',3)"
+                class="nrmlfillbtn">{{static_data.Switch_Committee.new_lobby}}</button>
+        </div>
+        <div fxFlex="38" fxFlex.sm="90">
+            <button id="btnSpnaish" fxFlex="90"
+                style="white-space: initial;font-weight: 600;font-size: medium;height: 50px !important;border: 1px solid #0f5597 !important;color: #0f5597;background-color: #fafafa;"
+                class="btn-border-clr" type="button"  color="primary"
+                (click)="committeeNewJoinEvent('join',3)"
+                class="nrmlfillbtn">{{static_data.Switch_Committee.join_lobby}}</button>
+        </div>
+    </div>
+
+    <!-- <div fxLayout="row" class="mar-tp-header">
+
+
+        <div fxFlex="38">
+            <button id="btnSpnaish" fxFlex="90"
+                style="border: 1px solid #0f5597 !important;color: #0f5597;background-color: #fafafa;"
+                class="btn-border-clr" type="button" mat-raised-button color="primary" (click) = "committeeNewJoinEvent('new',4)"
+                class="nrmlfillbtn">{{static_data.Switch_Committee.new_cover_off}}</button>
+        </div>
+        <div fxFlex="38">
+        </div>
+    </div> -->
+</div>

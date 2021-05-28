@@ -1,0 +1,12 @@
+<div class="matpopupheader-section">
+    <h2>{{ data.title  }}</h2>
+  </div>
+  <div class="matpopupbody-section">
+    <div class="textonfos">
+    <p>{{ data.message }}</p>
+    </div>
+    <div class="footer">
+        <button type="button" id="cancel-btn" class="cancel-btn" matDialogClose>{{ data.cancelText }}</button>
+        <button type="button" id="add-edit-btn" class="cleartxtbtn" (click)="confirm()">{{ data.confirmText }}</button>
+    </div>
+  </div>

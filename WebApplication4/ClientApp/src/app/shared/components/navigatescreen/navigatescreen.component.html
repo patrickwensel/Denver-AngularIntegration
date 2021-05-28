@@ -1,0 +1,22 @@
+<!-- <div class="container  ">
+    <div class="matform-Container">
+        <div>
+            <div> 
+            <h2 class="fontcolor" class="name">{{this.name}}</h2>
+            <button class= "uploadclss" mat-raised-button >Upload Data</button>
+            </div>
+
+            <br>
+            <h2 class="fontcolor" class="tabhead">Filing</h2> -->
+            <div *ngFor="let item of listItems" class="navigatepadding pointer">
+                <div (click)= "gotoScreen(item)" > 
+                    <h2 class="fontcolorblck"> {{item.displayName}} <span class="material-icons">
+                            arrow_forward_ios
+                        </span> </h2>
+                </div>
+                <hr>
+            </div>
+        <!-- </div>
+    </div> -->
+
+<!-- </div> -->

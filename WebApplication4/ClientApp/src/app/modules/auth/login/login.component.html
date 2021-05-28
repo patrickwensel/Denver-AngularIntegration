@@ -1,0 +1,51 @@
+<div class="container mar-height">
+    <div class="account-modules width-40">
+        <div class="width-100 account-inner-view">
+            <div class="width-100">
+                <a class="logo" href="javascript:void(0)">
+                    <img src="assets/images/denver_logo.png" title="Logo" alt="LOGO">
+                </a>
+            </div>
+            <div class="width-100 margin-bottom-25">
+                <h1>
+                    {{data.login.title}}
+                </h1>
+                <!-- <p class="center">
+            {{data.login.sign_in}}
+          </p> -->
+            </div>
+            <div class="width-100">
+                <form class="login-form" [formGroup]="frmLogin" autocomplete="off" (ngSubmit)="login()">
+                    <div class="o-Form__set">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields formControlName="email" placeholder="{{data.login.email_placeholder}}" id="email" name="email" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(frmLogin.get('email'), 'loginEmail')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="o-Form__set">
+                        <mat-form-field class="margin-bottom-15" appearance="fill">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="pshow ? 'password' : 'text'" id="password" formControlName="password" name="password" autofocus form-fields placeholder="{{data.login.password_placeholder}}" required>
+                            <mat-icon class="pointer" matSuffix (click)="pshow = !pshow">{{pshow ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(frmLogin.get('password'), 'loginPassword')}}
+                            </mat-error>
+                        </mat-form-field>
+                        <a class="width-100 primary-txt margin-bottom-25 right-align" (click)="gotoForgot()" href="javascript:void(0)">{{data.login.forgot_password}}</a>
+                    </div>
+                    <button type="submit" mat-raised-button class="login-btn">{{data.login.log_in}}</button>
+                </form>
+            </div>
+
+            <!-- <div class="width-100"> -->
+
+            <a class="color-BrightBlue create-btn" href="javascript:void(0)" (click)="routeToAccount()">
+          {{data.login.Create_Account}}
+        </a>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>

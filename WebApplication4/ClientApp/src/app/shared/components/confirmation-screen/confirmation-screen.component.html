@@ -1,0 +1,21 @@
+        <div class="container">
+            <div class="width-100">
+                <h2 *ngIf="user == 'account'" class=" color-BrightBlue">
+                    Success! Your account has been created and your request 
+                    for access has been sent to the {{type.userTypeName}}.
+                    <!-- {{data.create_account.confirm_submit.success {{ type.email}} }}     -->
+                </h2>
+                <h2 *ngIf="user == 'lobbyist'" class=" color-BrightBlue">
+                    Success! Your account has been created and your request 
+                    for access has been sent to the primary registered lobbyist.
+                    <!-- {{data.create_account.confirm_submit.success {{ type.email}} }}     -->
+                </h2>
+                <h4 class="color-BrightBlue">
+                    You will be notified at {{email}} when your access is approved.
+                    <!-- {{data.create_account.confirm_submit.directEmail  {{ type.userTypeName }} }} -->
+                </h4>
+            </div>
+            <div class="center">
+            <button mat-raised-button class="log_btn" (click)="login()">Log in</button>
+        </div>
+        </div>

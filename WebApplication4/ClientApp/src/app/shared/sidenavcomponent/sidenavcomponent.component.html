@@ -1,0 +1,127 @@
+<mat-sidenav-container class="example-container sidenavcontainer" >
+    <mat-sidenav opened mode="side" class="sidanavleft" *ngIf="isadmin && (isnoentity != 'true')">
+        <div fxLayout="column" class="sidenavestyle ">
+            <div [routerLink]="['/manage/manage_committee']" class="sidedata" [routerLinkActive]="['sidenav']" (click)= "clickedAdminlabel('managecomittee')" >
+                <a  mat-button class= "txt-align" >
+                    <mat-icon matsuffix  >groups</mat-icon> {{static_data.header_section.managecomponent}}
+                </a>
+            </div>
+            <div  class="sidedata" >
+                <a mat-button class="txt-align">
+                    <mat-icon matsuffix>text_snippet</mat-icon> {{static_data.header_section.reviewFilling}}
+                </a>
+            </div>
+            <div  class="sidedata" >
+                <a mat-button class="txt-align" >
+                    <mat-icon matsuffix>attach_money</mat-icon>{{static_data.header_section.payment}}
+                </a>
+            </div>
+            <div [routerLink]="['/manage/messages']"  [routerLinkActive]="['sidenav']" class="sidedata">
+                <a  mat-button class="txt-align"  >
+                    <mat-icon matsuffix>notifications</mat-icon>{{static_data.header_section.notification}}
+                </a>
+            </div>
+            <div [routerLink]="['/system/Management']"  [routerLinkActive]="['sidenav']"  (click)="clickedAdminlabel( 'systemManagement')" class="sidedata">
+                <a  mat-button class="txt-align"  >
+                    <mat-icon matsuffix>calendar_today</mat-icon>{{static_data.header_section.systemManagement}}
+                </a>
+            </div>
+            <div  class="sidedata" >
+                <a  mat-button class="txt-align" >
+                    <mat-icon matsuffix>event</mat-icon>{{static_data.header_section.calendar}}
+                </a>
+            </div>
+            <a mat-button></a>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav opened mode="side" class="sidanavleft" *ngIf="!isadmin && (isnoentity != 'true') && (hidesidenav != true)">
+        <div fxLayout="column" class="sidenavestyle">
+            <div [routerLink]="['/dashboard/']"  [routerLinkActive]="['sidenav']"  (click)="clickedlabel(0, 'filling')" class="sidedata">
+                <a  mat-button class= "txt-align" >
+                    <mat-icon matsuffix  >text_snippet</mat-icon> {{static_data.header_section.filling}}
+                </a>
+            </div>
+            <div  *ngIf="islobby" (click)="clickedlabel(1, 'registration')" class="sidedata"  >
+                <a mat-button class="txt-align">
+                    <mat-icon matsuffix>groups</mat-icon> {{static_data.header_section.registration}}
+                </a>
+            </div>
+            <div   *ngIf="!islobby"  (click)="clickedlabel(1, 'committeeinfo')" class="sidedata" >
+                <a mat-button class="txt-align">
+                    <mat-icon matsuffix>groups</mat-icon> {{static_data.header_section.Committee_information}}
+                </a>
+            </div>
+            <div  (click)="clickedlabel(2, 'fineandfees')" class="sidedata" >
+                <a mat-button class="txt-align" >
+                    <mat-icon matsuffix>attach_money</mat-icon>{{static_data.header_section.fine_and_fees}}
+                </a>
+            </div>
+            
+            <div  [routerLink]="['/manage/messages']"  [routerLinkActive]="['sidenav']" >
+                <a  mat-button class="txt-align" class="sidedata">
+                    <mat-icon matsuffix>notifications </mat-icon>{{static_data.header_section.notification}} 
+                </a>
+            </div>
+            <div  >
+                <a  mat-button class="txt-align" class="sidedata" >
+                    <mat-icon matsuffix>event</mat-icon>{{static_data.header_section.calendar}}
+                </a>
+            </div>
+            <a mat-button></a>
+        </div>
+    </mat-sidenav>
+<!-- 
+    <mat-sidenav opened mode="side" class="sidanavleft" *ngIf="!isadmin && islobby">
+        <div fxLayout="column" class="sidenavestyle">
+            <div [ngClass]="{sidenav: selectedindex == 0, sidenavTransparent:  selectedindex != 0}"  routerLinkActive="router-link-active"  (click)="callall(0, 'filling')">
+                <a  mat-button class= "txt-align" >
+                    <mat-icon matsuffix  >groups</mat-icon> {{static_data.header_section.filling}}
+                </a>
+            </div>
+            <div  [ngClass]="{sidenav: selectedindex == 1, sidenavTransparent:  selectedindex != 1}"  (click)="clickedlabel(1)"  >
+                <a mat-button class="txt-align">
+                    <mat-icon matsuffix>groups</mat-icon> {{static_data.header_section.registration}}
+                </a>
+            </div>
+            <div   [ngClass]="{sidenav: selectedindex == 2, sidenavTransparent:  selectedindex != 2}" (click)="clickedlabel(2)" >
+                <a mat-button class="txt-align" >
+                    <mat-icon matsuffix>attach_money</mat-icon>{{static_data.header_section.fine_and_fees}}
+                </a>
+            </div>
+            <div  [ngClass]="{sidenav: selectedindex == 3, sidenavTransparent:  selectedindex != 3}" (click)="clickedlabel(3)" >
+                <a  mat-button class="txt-align"  >
+                    <mat-icon matsuffix>notifications</mat-icon>{{static_data.header_section.notification}}
+                </a>
+            </div>
+            <div [ngClass]="{sidenav: selectedindex == 4, sidenavTransparent:  selectedindex != 4}" (click)="clickedlabel(4)" >
+                <a  mat-button class="txt-align" >
+                    <mat-icon matsuffix>notifications</mat-icon>{{static_data.header_section.calendar}}
+                </a>
+            </div>
+            <a mat-button></a>
+        </div>
+    </mat-sidenav> -->
+    <mat-sidenav opened mode="side" position="end" class="msgbar" *ngIf="showmsg && (isnoentity != 'true')">
+    <app-messagecomponent (selectindex)="setSelectedIndex($event)" ></app-messagecomponent>
+
+        <!-- <div>
+            <h2 class="msgfont">Messages</h2>
+
+            <div class="msgtab">
+            </div>
+            <div class="timeline-scroll">
+                <div class="timeline-content">
+                    <div class="text-gray"></div>NO RECORDS FOUND
+                </div>
+            </div>
+        </div> -->
+    </mat-sidenav>
+    <router-outlet *ngIf="isnoentity != 'true' || (hidesidenav == true) "></router-outlet>
+    <div class="noentity" *ngIf="isnoentity == 'true' && (hidesidenav != true) ">
+        <p class="text" >
+                {{static_data.staticmessages.noAffliatedEntityMsg1}} <br>
+                {{static_data.staticmessages.noAffliatedMsg2}}
+            </p>
+    </div>
+</mat-sidenav-container>

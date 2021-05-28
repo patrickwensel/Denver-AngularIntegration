@@ -1,0 +1,72 @@
+<!-- Create User -->
+<div class="container">
+    <div class="account-modules login-page">
+        <div class="width-100" style="padding: 1rem 2rem;" *ngIf="!confirm">
+            <h2 class="account-modules color-NavyBlue font-600">{{fullName}}{{static_data.lobbyist.register.counsil}}</h2>
+            <div class="margin-bottom-30">
+            <h2 *ngIf="selectIndex == 0" class="account-modules color-BrightBlue font-600">{{static_data.lobbyist.register.regis_Lobby}}</h2>
+            <h2 *ngIf="selectIndex == 1" class="account-modules color-BrightBlue font-600">{{static_data.lobbyist.register.emp_Lobby}}
+            </h2>
+            <h2 *ngIf="selectIndex == 2" class="account-modules color-BrightBlue font-600">      {{static_data.lobbyist.register.subContract_lobby}}
+            </h2>
+            <h2 *ngIf="selectIndex == 3" class="account-modules color-BrightBlue font-600">      {{static_data.lobbyist.register.relationships}}
+            </h2>
+            <h2 *ngIf="selectIndex == 4" class="account-modules color-BrightBlue font-600">{{static_data.lobbyist.register.clients_lobby}}
+            </h2>
+            <h2 *ngIf="selectIndex == 5" class="account-modules color-BrightBlue font-600">{{static_data.lobbyist.register.Signature}}
+            </h2>
+        </div>
+            <mat-tab-group [selectedIndex]="selectIndex">
+
+                <mat-tab [disabled]="isSelected(0)" label="{{static_data.lobbyist.lobby.heading_1}}">
+                    <ng-template matTabContent>
+                        <app-lobbyist-registration [LobbyRegistrationDate]="LobbyRegistrationDate" (LobbyRegistration)="getLobbyRegistration($event)"></app-lobbyist-registration>
+                    </ng-template>
+                </mat-tab>
+
+
+                <mat-tab [disabled]="isSelected(1)" label="{{static_data.lobbyist.lobby.heading_2}}">
+                    <ng-template matTabContent>
+                        <app-lobbyist-employees [LobbyRegistrationDate]="LobbyRegistrationDate"  (EmployeeeDataEmitter)="getLobbyEmployee($event)" (backBtnEmitter)="backbtn($event)"></app-lobbyist-employees>
+                    </ng-template>
+                </mat-tab>
+
+
+                <mat-tab [disabled]="isSelected(2)" label="{{static_data.lobbyist.lobby.heading_3}}">
+                    <ng-template matTabContent>
+                        <app-lobbyist-subcontractors [LobbyRegistrationDate]="LobbyRegistrationDate" (subcontractorDataEmitter)="getSubcontractorsList($event)" (backBtnEmitter)="backbtn($event)"></app-lobbyist-subcontractors>
+                    </ng-template>
+                </mat-tab>
+
+
+
+                <mat-tab [disabled]="isSelected(3)" label="{{static_data.lobbyist.lobby.heading_4}}">
+                    <ng-template matTabContent>
+                        <app-lobbyist-relationships [LobbyRegistrationDate]="LobbyRegistrationDate"  (RelationshipDataEmitter)="getRelationshipsList($event)" (backBtnEmitter)="backbtn($event)"></app-lobbyist-relationships>
+                    </ng-template>
+                </mat-tab>
+
+
+                <mat-tab [disabled]="isSelected(4)" label="{{static_data.lobbyist.lobby.heading_5}}">
+                    <ng-template matTabContent>
+                        <app-lobbyist-clients [LobbyRegistrationDate]="LobbyRegistrationDate"  (ClientDataEmitter)="getClientList($event)" (backBtnEmitter)="backbtn($event)"></app-lobbyist-clients>
+                    </ng-template>
+                </mat-tab>
+
+
+                <mat-tab [disabled]="isSelected(5)" label="{{static_data.lobbyist.lobby.heading_6}}">
+                    <ng-template matTabContent>
+                       <app-lobbyist-signature (backBtnEmitter)="backbtn($event)" (signaturePadEmitter)="getSignaturePad($event)" ></app-lobbyist-signature>
+                    </ng-template>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+        <div class="cnfrm-screen " *ngIf="confirm">
+            <app-confirmation-screen [user]="lobbyist">
+          
+            </app-confirmation-screen>
+          </div>
+    </div>
+
+</div>

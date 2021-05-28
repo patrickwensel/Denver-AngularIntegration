@@ -1,0 +1,14 @@
+<div class="modal-container">
+  <div mat-dialog-content>
+    <h1 class="u-margin-bottom-15">
+      Delete
+    </h1>
+    <p class="u-margin-bottom-15">
+        Are you sure you would like to delete?
+    </p>
+  </div>
+  <div mat-dialog-actions class="u-right">
+    <button mat-button (click)="onNoClick()" class="bg-none-btn nyan-clr">Cancel</button>
+    <button mat-button [mat-dialog-close]="data.id" cdkFocusInitial class="delete-btn">Yes</button>
+  </div>
+</div>

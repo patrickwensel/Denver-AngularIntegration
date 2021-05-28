@@ -1,0 +1,86 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.btn-cancel-alg {
+    float: right;
+}
+.container {
+  float: left;
+  width: 100%;
+}
+
+.click-hand {
+  cursor: pointer;
+}
+
+
+.create-form {
+    width: 100%;
+  }
+  
+  .create-full-width {
+    width: 80%;
+  }
+
+  .header-pad-top {
+    padding-top: 15px;
+  }
+
+  .tab-width {
+      width: 100%;
+  }
+.container{
+  padding: 20px 20px 20px 20px;
+}
+
+.hide {
+  display: none;
+}
+
+ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  width: 10%;
+}
+ .mat-header-cell:nth-child(4),.mat-cell:nth-child(4){
+  padding-left: 21px;
+}
+ .mat-header-cell:nth-child(3),.mat-cell:nth-child(3){
+  padding-left: 21px;
+}
+.mat-header-cell:last-child,.mat-cell:last-child{
+  padding-left: 21px;
+}
+ .mat-option{
+  padding: 0px 16px !important;
+}
+button{
+  height: 42px;
+  width: 80px;
+  font-size: 18px;
+  letter-spacing: 0.25px;
+}
+.grid-date{
+  display: grid;
+  grid-template-columns: 148px 148px;
+  gap: 12px;
+}
+.width-40{
+  width: 40%;
+}
+.width-20{
+  width: 30%;
+  padding-top: 11px;
+  margin-right: 13px;
+  text-align: right;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px !important;
+}
+.mat-error{
+  font-size: 13px !important;
+}

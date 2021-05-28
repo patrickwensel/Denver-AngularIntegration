@@ -1,0 +1,7 @@
+<div *ngFor="let option of CommLobbEntityList; let idx=index" class="line-spacing">
+    <button class="btn-search" class="btn-align" style="margin-right: -10px;border-radius: 0px;" mat-flat-button
+        color="primary" class="nrmlfillbtn" matSuffix aria-label="Clear">
+        {{showCommitee?option.committeeName:option.firstName}}
+        <mat-icon (click)="removeCommLobby(option,idx)">close</mat-icon>
+    </button>
+</div>

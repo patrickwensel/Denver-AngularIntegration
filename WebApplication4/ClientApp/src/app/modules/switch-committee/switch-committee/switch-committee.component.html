@@ -1,0 +1,279 @@
+<div>
+    <!-- <div *ngIf='!showJoinCommittee && !showJoinIndipendent && !showJoinLobby && !showNewIndipendent && !showOtherFiler'>
+        <div class="container">
+            <div class="">
+
+                <div fxLayout="row" fxLayout.xs="column" class="">
+                    <div fxFlex="60" fxFlex.xs="90" fxFlex.sm="90" class="sub-section-1">
+
+
+                        <div fxLayout="row">
+                            <h1 class="account-modules text-color font-600 font-sze-xlarge">
+                                {{static_data.Switch_Committee.switch_comm}}</h1>
+                        </div>
+                        <div fxLayout="row" *ngIf="committeeLobbyList.committeelist.length">
+                            <h2 class="account-modules  text-color font-sze-large">
+                                {{static_data.Switch_Committee.select_comm}}</h2>
+                        </div>
+                        <div class="flex">
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="chooseCommitte">
+                                <mat-radio-button (click)="onChangeCommittee(committee)" fxLayout="row"
+                                    *ngFor="let committee of committeeLobbyList.committeelist"
+                                    [checked]="chooseLobbiest == committee.committeeID && !chooseLobbiest"
+                                    [value]="committee.committeeID">
+                                    {{committee.committeeName}}</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                        <div fxLayout="row" *ngIf="committeeLobbyList?.lobbyistlist.length">
+                            <h2 class="account-modules  text-color font-sze-large">
+                                {{static_data.Switch_Committee.select_lobb}}</h2>
+                        </div>
+                        <div class="flex">
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="chooseLobbiest">
+                                <mat-radio-button (click)="onChangeLobby(lobby)" fxLayout="row"
+                                    [checked]="chooseLobbiest == lobby.lobbyistID && !chooseCommitte"
+                                    *ngFor="let lobby of committeeLobbyList.lobbyistlist" value="{{lobby.lobbyistID}}">
+                                    {{lobby.lobbyistName}}</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                        <div fxLayout="row" *ngIf="committeeLobbyList.ielist && committeeLobbyList?.ielist.length">
+                            <h2 class="account-modules  text-color font-sze-large">
+                                {{static_data.Switch_Committee.select_IE}}</h2>
+                        </div>
+                        <div class="flex">
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="chooseIE">
+                                <mat-radio-button (click)="chooseIE(ie)" fxLayout="row"
+                                    [checked]="chooseIE == ie.IndependentSpenderID && !chooseCommitte"
+                                    *ngFor="let ie of committeeLobbyList.ielist" value="{{ie.IndependentSpenderID}}">
+                                    {{ie.IndependentSpenderName}}</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+
+                        <app-register-join-committee (CommJoinNewEmit)='switchJoinNewEvent($event)'>
+                        </app-register-join-committee>
+
+                    </div>
+                    <div fxFlex="30" fxFlex.xs="90" fxFlex.sm="90" class="sub-section-2" style="margin-top: 1%;">
+                        <app-current-committee-information [filerType]="filerType" [committeeInformation]="committeDetail">
+                        </app-current-committee-information>
+
+                        <div class="txt-align-center">
+                            <button id="select_filer" class="font-sze" mat-raised-button color="primary"
+                                (click)="selectFiler()">Select Filer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div *ngIf='!showJoinCommittee && !showJoinIndipendent && !showJoinLobby && !showNewIndipendent'>
+        <div class="container">
+            <div class="">
+
+                <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="">
+                    <div fxFlex="60" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="90" fxFlex.sm="90" class="sub-section-1">
+                        <!-- <div fxLayout="row">
+                            <h1 class="account-modules color-NavyBlue font-600">
+                                {{static_data.lobbyist.register.counsil}}</h1>
+                        </div> -->
+
+                        <div fxLayout="row" *ngIf="committeeLobbyList.committeelist.length>0">
+                            <h1 class="account-modules text-color font-600 font-sze-xlarge">
+                                {{static_data.Switch_Committee.switch_comm}}</h1>
+                        </div>
+                        <div fxLayout="row" *ngIf="committeeLobbyList.committeelist.length && (showWhichComm =='committee' || showAllFilter)">
+                            <h2 class="account-modules  text-color font-sze-large">
+                                {{static_data.Switch_Committee.select_comm}}</h2>
+                        </div>
+                        <div class="flex" *ngIf="(showWhichComm =='committee' || showAllFilter)">
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="chooseCommitte">
+                                <mat-radio-button (click)="onChangeCommittee(committee)" fxLayout="row" *ngFor="let committee of committeeLobbyList.committeelist" [checked]="chooseCommitte == committee.committeeID && !chooseLobbiest" [value]="committee.committeeID">
+                                    {{committee.committeeName}}</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                        <div fxLayout="row" *ngIf="committeeLobbyList?.lobbyistlist.length && (showWhichComm =='Lobbyist' || showAllFilter)">
+                            <h2 class="account-modules  text-color font-sze-large">
+                                {{static_data.Switch_Committee.select_lobb}}</h2>
+                        </div>
+                        <div class="flex" *ngIf="(showWhichComm =='Lobbyist' || showAllFilter)">
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="chooseLobbiest">
+                                <mat-radio-button (click)="onChangeLobby(lobby)" fxLayout="row" [checked]="chooseLobbiest == lobby.lobbyistID && !chooseCommitte" *ngFor="let lobby of committeeLobbyList.lobbyistlist" value="{{lobby.lobbyistID}}">
+                                    {{lobby.lobbyistName}}</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                        <div fxLayout="row" *ngIf="committeeLobbyList.ielist && committeeLobbyList?.ielist.length && (showWhichComm =='ie' || showAllFilter)">
+                            <h2 class="account-modules  text-color font-sze-large">
+                                {{static_data.Switch_Committee.select_IE}}</h2>
+                        </div>
+                        <div class="flex" *ngIf="(showWhichComm =='ie' || showAllFilter)">
+                            <mat-radio-group aria-label="Select an option" [(ngModel)]="chooseIE">
+                                <mat-radio-button (click)="onChangeIE(ie)" fxLayout="row"
+                                    [checked]="chooseIE == ie.IndependentSpenderID && !chooseCommitte"
+                                    *ngFor="let ie of committeeLobbyList.ielist" value="{{ie.independentSpenderID}}">
+                                    {{ie.independentSpenderName}}</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                        <div  class="mar-tp-header underline" *ngIf="!showAllFilter && committeeLobbyList.committeelist.length>0">
+                            <a class=" color-BrightBlue back-btn cls-cursor " (click)="viewOther() ">{{static_data.Switch_Committee.view_other}}</a> <br>
+                            <span>____________________________________________________________________</span>
+                        </div>
+                        <!-- <hr style="height: 2px;background-color: #002d56;width: 600px; "> -->
+                        <!-- res or join -->
+                        <app-register-join-committee (CommJoinNewEmit)='switchJoinNewEvent($event)'>
+                        </app-register-join-committee>
+                        <!-- res or join -->
+                    </div>
+                    <div fxFlex="30 " fxFlex.sm="90 " fxFlex.gt-sm="90 " fxFlex.xs="90 " fxFlex.sm="90 " class="sub-section-2 " style="margin-top: 1%; " *ngIf="committeeLobbyList.committeelist.length>0">
+                        <app-current-committee-information [filerType]="filerType" [committeeInformation]="committeDetail">
+                        </app-current-committee-information>
+
+                        <div class="txt-align-center">
+                            <button id="select_filer" class="font-sze" mat-raised-button color="primary" (click)="selectFiler()">{{fromlogin? 'Select': 'Switch'}} Filer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" *ngIf="showJoinCommittee">
+        <div class="account-modules tab-width">
+
+            <div class="width-100 account-inner-view">
+                <div>
+                    <h2 class="color-BrightBlue font-600"> {{static_data.Switch_Committee.new_comm_head}}</h2>
+                </div>
+                <div class="justifyPara">
+                    <p> {{static_data.Switch_Committee.new_comm_head_paragh}}</p>
+                </div>
+                <div>
+                    <app-search-committee-lobbyist [isFromSwitchComm]='true' [showCommitee]="showJoinCommittee" [options]="getCommitteeList" [lobbyOption]="getLobbyList" [selectedItems]="selectedCommLobbList" (addSelectedEmitter)="addSelectedtoList($event)" (navigatePath)="navigate($event)"
+                        (addSearchEmitter)="addSearchEmitter($event)">
+                    </app-search-committee-lobbyist>
+                </div>
+                <div>
+                    <app-select-list-committee-lobbyist [showCommitee]="showJoinCommittee" [CommLobbEntityList]="selectedCommLobbList" (deleteSelectedEmitter)="deleteSelectedList($event)">
+                    </app-select-list-committee-lobbyist>
+                </div>
+
+                <div>
+                    <h4 class="color-BrightBlue font-600"> {{static_data.Switch_Committee.add_note}}</h4>
+                </div>
+
+                <div>
+                    <label class="visuallyhidden" for="note">{{static_data.Switch_Committee.add_note}}</label>
+                    <textarea matInput style="background: #fff;border: 1px solid;" id="note" [(ngModel)]="note" rows="4"></textarea>
+                </div>
+
+                <div class="backAndSend">
+                    <a  class="color-BrightBlue back-btn" id="back" type="button" (click)="Sendback()" style="margin-top: 13px;"
+                    >{{static_data?.button?.back}}</a>
+                    <button id="sendD" type="button" (click)="SendDetail(1)" mat-flat-button color="primary" class="nrmlfillbtn btn-send">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" *ngIf="showJoinIndipendent">
+        <div class="account-modules tab-width">
+
+            <div class="width-100 account-inner-view">
+                <div>
+                    <h2 class="color-BrightBlue font-600" style="text-align: center;"> {{static_data.Switch_Committee.new_ie_head}}
+                    </h2>
+                </div>
+                <div>
+                    <app-search-committee-lobbyist [isFromSwitchComm]='true' [showJoinIndipendent]='showJoinIndipendent' [showCommitee]="showJoinCommittee" [options]="getIndipendentList" [lobbyOption]="getLobbyList" [selectedItems]="selectedCommLobbList" (addSelectedEmitter)="addSelectedtoList($event)"
+                        (navigatePath)="navigate($event)" (addSearchEmitter)="addSearchEmitter($event)">
+                    </app-search-committee-lobbyist>
+                </div>
+                <div>
+                    <app-select-list-committee-lobbyist [showCommitee]="showJoinCommittee" [CommLobbEntityList]="selectedCommLobbList" (deleteSelectedEmitter)="deleteSelectedList($event)">
+                    </app-select-list-committee-lobbyist>
+                </div>
+
+                <div>
+                    <h4 class="color-BrightBlue font-600"> {{static_data.Switch_Committee.add_note}}</h4>
+                </div>
+
+                <div>
+                    <label class="visuallyhidden" for="note1">{{static_data.Switch_Committee.add_note}}</label>
+                    <textarea matInput style="background: #fff;border: 1px solid;" id="note1" [(ngModel)]="note" rows="4"></textarea>
+                </div>
+
+                <div class="backAndSend">
+                    <!-- <button id="back" type="button" (click)="Sendback()" mat-flat-button class="nrmlfillbtn btn-back">back</button> -->
+                    <a  class="color-BrightBlue back-btn" id="back" type="button" (click)="Sendback()" style="margin-top: 8px"
+                    >{{static_data?.button?.back}}</a>
+                    <button id="sendD" type="button" (click)="SendDetail(2)" mat-flat-button color="primary" class="nrmlfillbtn btn-send">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" *ngIf="showNewIndipendent">
+        <div class="account-modules tab-width">
+
+            <div class="width-100 account-inner-view">
+                <div>
+                    <h2 class="color-BrightBlue font-600"> {{static_data.Switch_Committee.new_ie_head}}</h2>
+                </div>
+
+                <div>
+                    <app-indipendent-expenditure (IEFormEmit)="IEFormData($event)" (IEgoBackEmit)="Sendback()">
+                    </app-indipendent-expenditure>
+                </div>
+
+                <!-- <div>
+                    <button id="back" type="button" (click)="Sendback()" mat-flat-button
+                        class="nrmlfillbtn btn-back">back</button>
+                    <button id="sendD" type="button" (click)="SendNewIEDetail()" mat-flat-button color="primary"
+                        class="nrmlfillbtn btn-send">Send</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <div class="container" *ngIf="showJoinLobby">
+        <div class="account-modules tab-width">
+
+            <div class="width-100 account-inner-view">
+                <div>
+                    <h2 class="color-BrightBlue font-600"> {{static_data.Switch_Committee.new_lobb_head}}</h2>
+                </div>
+                <div class="justifyPara">
+                    <p> {{static_data.Switch_Committee.new_lob_head_paragh}}</p>
+                </div>
+                <div>
+                    <app-search-committee-lobbyist [isFromSwitchComm]='true' [showCommitee]="!showJoinLobby" [options]="getLobbyList" [lobbyOption]="getLobbyList" [selectedItems]="selectedCommLobbList" (addSelectedEmitter)="addSelectedtoList($event)" (navigatePath)="navigate($event)"
+                        (addSearchEmitter)="addSearchEmitter($event)">
+                    </app-search-committee-lobbyist>
+                </div>
+                <div>
+                    <app-select-list-committee-lobbyist [showCommitee]="showJoinCommittee" [CommLobbEntityList]="selectedCommLobbList" (deleteSelectedEmitter)="deleteSelectedList($event)">
+                    </app-select-list-committee-lobbyist>
+                </div>
+
+                <div>
+                    <h4 class="color-BrightBlue font-600"> {{static_data.Switch_Committee.add_note}}</h4>
+                </div>
+
+                <div>
+                    <label class="visuallyhidden" for="note2">{{static_data.Switch_Committee.add_note}}</label>
+                    <textarea matInput style="background: #fff;border: 1px solid;" id="note2" [(ngModel)]="note" rows="4"></textarea>
+                </div>
+
+                <div class="backAndSend">
+                        <a  class="color-BrightBlue back-btn" id="back" type="button" (click)="Sendback()" style="margin-top: 8px"
+                        >{{static_data?.button?.back}}</a> 
+                    <button id="sendD" type="button" (click)="SendDetail(3)" mat-flat-button color="primary" class="nrmlfillbtn btn-send">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

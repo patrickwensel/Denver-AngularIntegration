@@ -1,0 +1,14 @@
+<div>
+    <h2 class="msgfont">Messages</h2>
+
+    <div class="msgtab" *ngFor="let item of sampleobj" (click) = 'msgclicked(item)'>
+        <p class="heading"> {{item.heading}}</p>
+        <p class="subheading"> {{item.subheading}}</p>
+        <p class="date"> {{item.date}}</p>
+    </div>
+    <div class="timeline-scroll" *ngIf="sampleobj.length == 0">
+        <div class="timeline-content">
+            <div class="text-gray"></div>NO MESSAGES FOUND
+        </div>
+    </div>
+</div>

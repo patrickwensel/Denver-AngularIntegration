@@ -1,0 +1,85 @@
+<div class="tab-width">
+    <form class="create-form" id="create-info" autocomplete="off" [formGroup]="bankForm">
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.bank_info.bankName}}</mat-label>
+            <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.bankName}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="bankName" formControlName="bankName">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('bankName'), 'bankName')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.bank_info.Address1}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.Address1}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="Address1" formControlName="address1" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('address1'), 'address1')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.bank_info.Address2}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.Address2}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="Address2" formControlName="address2" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('address2'), 'address2')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.bank_info.city}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.city}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="city" formControlName="city" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('city'), 'city')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.bank_info.state}}</mat-label>
+            <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.state}}</mat-label>
+                <mat-select formControlName="state">
+                    <mat-option *ngFor="let state of stateList" value="{{state.stateCode}}">{{state.stateDesc}}</mat-option>
+                </mat-select>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('state'), 'state')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.bank_info.zipcode}}</mat-label>
+            <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.zipcode}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields keyPrevent [OnlyNumber]="true" id="zipcode" formControlName="zipcode" maxlength="5">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('zipcode'), 'zipcode')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+<!-- 
+        <div class="flex bottom-btn margin-bottom-25">
+            <span>
+        <a class="color-BrightBlue back-btn" href="javascript:void(0)" (click)="goBack()">{{static_data.button.back}}</a>
+      </span>
+            <span class="btn-sub-align">
+        <button id="addInfo"  type="button" mat-flat-button color="primary" (click)="submitBankForm()"
+          class="nrmlfillbtn">{{static_data.button.submit}}</button>
+      </span>
+        </div> -->
+    </form>
+
+
+</div>
+
+<br><br><br>
+<div>
+    <button mat-raised-button color="primary" class="right" (click)="submitBankForm()">{{static_data.button.submit}}</button>
+    <a  class="color-BrightBlue back-btn goToBack" id="back" type="button" (click)="goBack()">{{static_data.button.back}} </a>
+</div>

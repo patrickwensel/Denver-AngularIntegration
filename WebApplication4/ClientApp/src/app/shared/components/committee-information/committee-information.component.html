@@ -1,0 +1,147 @@
+<div class="tab-width">
+  <form class="create-form" id="create-info" autocomplete="off" [formGroup]="committeeInformationForm">
+    <div class="flex" *ngIf="!otherCommittee">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.committee_name}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.committee_name}}</mat-label>
+        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="committeeName"
+          formControlName="committeeName" keyPrevent [AlphaSpace]="true">
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('committeeName'), 'committeeName')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.committee_type}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.committee_type}}</mat-label>
+        <mat-select formControlName="committeeType" [disabled]="canUser == 'USER-CAN'">
+          <mat-option  *ngFor="let type of typeCommittee" [value]="type.lookUpTypeId" (click)="changevalue(type)"> {{type.lookUpDesc}}</mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('committeeType'), 'committeeType')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div *ngIf="userType == 'USER-CAN' && !otherCommittee">
+    <div class="flex">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.candidateFirstName}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.candidateFirstName}}</mat-label>
+        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="candidateFirstName"
+          formControlName="candidateFirstName" keyPrevent>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('candidateFirstName'), 'candidateFirstName')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.candidateLastName}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.candidateLastName}}</mat-label>
+        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="candidateLastName"
+          formControlName="candidateLastName" keyPrevent>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('candidateLastName'), 'candidateLastName')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.office_sought}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.office_sought}}</mat-label>
+        <mat-select formControlName="office_sought">
+          <mat-option *ngFor="let office of getAllOfficeListApi" [value]="office.officeId">{{office.officeName}}</mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('office_sought'), 'office_sought')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.district}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.district}}</mat-label>
+        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="district"
+          formControlName="district" keyPrevent>
+      </mat-form-field>
+    </div>
+    </div>
+    <div *ngIf="userType == 'USER-TSR' && !otherCommittee">
+    <div class="flex">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.ballot_issue}}
+        <mat-icon matsuffix>help</mat-icon>
+      </mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.ballot_issue}}</mat-label>
+        <mat-select formControlName="ballotIssue">
+          <mat-option *ngFor="let ballot of ballotIssue" [value]="ballot.ballotIssueCode">{{ballot.ballotIssue}}</mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('ballotIssue'), 'ballotIssue')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label class="width-20"></mat-label>
+      <mat-form-field appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">ballot Number</mat-label>
+        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" maxlength="150">
+      </mat-form-field>
+    </div>
+  </div>
+    <div class="flex" *ngIf="!otherCommittee">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.election_date}}</mat-label>
+      <mat-form-field appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.election_date}}</mat-label>
+        <mat-select formControlName="electionDate">
+          <mat-option *ngFor="let date of electionDate" [value]="date.sequenceNo">{{date.electionDate | date:masterDate.dateFormat}}</mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('electionDate'), 'electionDate')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex" *ngIf="userType == 'USER-TSR' && !otherCommittee">
+      <mat-label class="width-20">{{static_data.committee_registration.committee_info.position}}</mat-label>
+      <mat-form-field appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.position}}</mat-label>
+        <mat-select formControlName="position">
+          <mat-option *ngFor="let position of position" [value]="position"> {{position}} </mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('position'), 'position')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="left-20" *ngIf="userType == 'USER-TSR' || otherCommittee">
+      <mat-label>{{static_data.committee_registration.committee_info.purpose}}</mat-label>
+      <div>
+        <mat-form-field appearance="fill" class="width-100"  [hideRequiredMarker]='hideRequiredMarker'>
+          <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.purpose}}</mat-label>
+          <textarea matInput id="purpose" formControlName="purpose" rows="4" ></textarea>
+          <mat-error class="error">
+            {{errorService.checkErrorMessage(committeeInformationForm.get('purpose'), 'purpose')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+     <!-- <div class="flex bottom-btn margin-bottom-25">
+    <span>
+      <a class="color-BrightBlue back-btn"  (click)="back()"> Back</a>
+    </span>
+    <span>
+      <button mat-raised-button color="primary" (click)="validateSubmitContactInfo()">{{static_data.button.next}}</button>
+    </span>
+  </div> -->
+
+  </form>
+</div>
+<br><br><br>
+<div>
+  <button mat-raised-button color="primary" style="float: right" (click)="validateSubmitContactInfo()">{{static_data.button.next}}</button>
+  <a  class="color-BrightBlue back-btn goToBack" id="back" type="button" (click)="back()"
+  >{{static_data?.button?.back}}</a>
+</div>

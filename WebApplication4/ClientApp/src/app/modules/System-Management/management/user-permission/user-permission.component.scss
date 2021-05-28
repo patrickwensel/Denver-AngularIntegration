@@ -1,0 +1,15 @@
+table {width: 100%;}
+
+table .rowClick {
+  cursor: pointer;
+}
+::ng-deep .mat-table thead{
+  background: #f0f0f0;
+}
+mat-icon{
+    color: #005596;
+    font-weight: 600;
+}
+.left-mar{
+  padding-left: 25px;
+}

@@ -1,0 +1,23 @@
+<div class="container  ">
+        <div class="matform-Container">
+                <div>
+                        <div>
+                                <h2 class="name">{{name}}</h2>
+                        </div>
+
+                        <h2 class="tabhead title">Filings</h2>
+
+
+                        <mat-tab-group>
+                                <mat-tab label="Current Drafts">
+
+                                </mat-tab>
+                                <mat-tab label="Existing Reports">
+                                        <app-lobby-existing-reports-table [DataSource]="dataSource">
+                                        </app-lobby-existing-reports-table>
+                                </mat-tab>
+                        </mat-tab-group>
+
+                </div>
+        </div>
+</div>

@@ -1,0 +1,32 @@
+.create-font-style {
+    font-size: 17px;
+    font-weight: 400;
+    cursor:pointer;
+}
+
+  .search-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .search-full-width {
+    width: 100%;
+  }
+
+  .btn-search {
+    width: 100px;
+    height: 34px;
+    margin-right: -10px;
+    border-radius: 0px;
+  }
+  .mat-icon {
+    top: 7px;
+    position: relative;
+    right: 4px;
+    font-size: 22px;
+    font-weight: 600;
+}
+::ng-deep .mat-form-field-flex {
+  background-color: transparent;
+}

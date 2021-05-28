@@ -1,0 +1,57 @@
+<div class="container">
+    <div>
+        <div class="width-100">
+            <a>
+                <h3 *ngIf="!showJoinIndipendent" class="create-font-style color-BrightBlue">{{showCommitee == true?data.create_account.select_create_commitee.select_entity:data.create_account.select_create_lobbyist.select_entity}}
+                </h3>
+                <h3 *ngIf="showJoinIndipendent" class="create-font-style color-BrightBlue">
+                    {{data.create_account.select_create_lobbyist.select_ie_entity}}</h3>
+            </a>
+        </div>
+        <form class="search-form">
+            <mat-form-field class="search-full-width" floatLabel="never">
+                <mat-label *ngIf="!showJoinIndipendent">{{showCommitee == true?data.create_account.search_placeholder.committee_entity:data.create_account.search_placeholder.lobby_entity}}
+                </mat-label>
+                <mat-label *ngIf="showJoinIndipendent">{{data.create_account.search_placeholder.ie_entity}}</mat-label>
+                <input type="text" matInput [(ngModel)]="searchpopular" name="SearchControl" [matAutocomplete]="auto" id="search-popular" (ngModelChange)="this.txtQueryChanged.next($event)">
+                <mat-icon matPrefix>search</mat-icon>
+                <mat-autocomplete #auto="matAutocomplete">
+                    <div *ngIf="!showJoinIndipendent && showCommitee">
+                        <mat-option *ngFor="let option of options" (click)="selectedItem(option)">
+                            {{option.committeeName}}
+                        </mat-option>
+                        <mat-option *ngIf="!options?.length">
+                            {{data.notFound.notfound}}
+                        </mat-option>
+                    </div>
+                    <div *ngIf="!showJoinIndipendent && !showCommitee">
+                        <mat-option *ngFor="let option of lobbyOption" (click)="selectedItem(option)">
+                            {{option.firstName}}
+                        </mat-option>
+                        <mat-option *ngIf="!lobbyOption?.length">
+                            {{data.notFound.notfound}}
+                        </mat-option>
+                    </div>
+                    <div *ngIf="showJoinIndipendent">
+                        <mat-option *ngFor="let option of options" (click)="selectedItem(option)">
+                            {{option.firstName}}
+                        </mat-option>
+                        <mat-option *ngIf="!options?.length">
+                            {{data.notFound.notfound}}
+                        </mat-option>
+                    </div>
+                </mat-autocomplete>
+                <!-- *ngIf="!isFromSwitchComm" -->
+                <button type="button" class="btn-search" mat-flat-button color="primary" matSuffix aria-label="Clear">
+                    SEARCH
+                </button>
+            </mat-form-field>
+        </form>
+        <div class="width-100" *ngIf="!selectedItems?.length && !isFromSwitchComm">
+            <a>
+                <h3 class="create-font-style color-BrightBlue" (click)="routeTopath(showCommitee)"> {{showCommitee == true?data.create_account.select_create_commitee.create_entity:data.create_account.select_create_lobbyist.create_entity}}
+                </h3>
+            </a>
+        </div>
+    </div>
+</div>

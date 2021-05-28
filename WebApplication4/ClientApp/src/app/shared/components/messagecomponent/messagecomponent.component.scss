@@ -1,0 +1,40 @@
+.msgtab{
+    display: inline-block;
+    height: 90px;
+    width: 100%;
+    // border-radius: 5px;
+    background-color: #eae9e9;
+    margin-bottom: 10px;
+    border-left-color: coral;
+    border-left-width: 10px;
+   border-left-style: solid;
+   padding: 13px;
+}
+
+
+.msgbar {
+    width: 20%; 
+    padding: 45px 15px
+}
+
+.msgfont {
+    color: rgb(15 85 151);
+    font-size: 25px
+}
+
+.heading {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.794);
+    font-weight : bold;
+    margin: 0px;
+}
+
+.subheading {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.date {
+    font-size: 11px;
+    margin: 0px;
+}

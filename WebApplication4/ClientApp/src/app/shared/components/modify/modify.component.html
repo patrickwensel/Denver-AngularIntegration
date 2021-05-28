@@ -1,0 +1,14 @@
+<div  class="flex" *ngFor="let modify of modifyItems;let idx=index">
+<div class="margin-bottom-15">
+<h3>{{modify.displayName}}</h3>
+<div class=" postimage-uploadbtn">
+<input type="file" accept="image/x-png,image/jpeg/*" (change)="selectImage($event,idx)">
+<button class="uploadclss">Select Image</button>
+</div>
+</div>
+</div>
+<div class="margin-bottom-10" >
+    <button style="width: 7.8%;" id="addInfo" type="button" mat-flat-button>{{static_data.button.cancel}}</button>
+    <button style="width: 7.5%;" id="addInfo" type="button" mat-flat-button color="primary" 
+      class="nrmlfillbtn" (click)="save()">{{static_data.button.save}}</button>
+</div>

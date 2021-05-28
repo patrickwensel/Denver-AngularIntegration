@@ -1,0 +1,20 @@
+.uploadclss {
+    color: #073d6e;
+    float: left;
+    border: 2px solid rgb(15 85 151);
+    padding: 8px 40px;
+    font-weight: 600;
+    background: transparent;
+  }
+  .postimage-uploadbtn {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.postimage-uploadbtn input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}

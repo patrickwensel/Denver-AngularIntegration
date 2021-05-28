@@ -1,0 +1,69 @@
+<!-- Create User -->
+<div>
+  <div *ngIf="showTab">
+    <div class="container ">
+      <div class="matform-Container">
+        <!-- matform-Container -->
+        <mat-tab-group [selectedIndex]="selectIndex">
+          <mat-tab [disabled]="isSelected(0)" label="{{static_data.committee_registration.tab_heading.heding_1}}">
+            <ng-template matTabContent >
+              <h1 class="color-BrightBlue header-pad-top">
+                {{static_data.committee_registration.committee_info.heading}}
+              </h1>
+              <app-committee-information [committeeInformation]="committeeRegistrationDate" (InformationFormValue)="CommitteeInfo($event)" ></app-committee-information>
+            </ng-template>
+          </mat-tab>
+          <mat-tab [disabled]="isSelected(1)" label="{{static_data.committee_registration.tab_heading.heding_2}}">
+            <ng-template matTabContent>
+
+              <h1 class="color-BrightBlue header-pad-top heading-align-left">
+                {{static_data.committee_registration.commitee_contact.heading}}
+              </h1>
+              <app-committee-contact-information [committeeInformation]="committeeRegistrationDate" (contactInformationFormValue)="contactInformation($event)" (backBtnEmiter)="goback($event)"></app-committee-contact-information>
+            </ng-template>
+          </mat-tab>
+          <mat-tab [disabled]="isSelected(2)" label="{{static_data.committee_registration.tab_heading.heding_3}}">
+            <ng-template matTabContent>
+              <h1 class="color-BrightBlue header-pad-top heading-align-left">
+                {{static_data.committee_registration.commitee_office.list_heading}}
+              </h1>
+              <app-committee-manage-office [committeeInformation]="committeeRegistrationDate" (officerDataEmitter)="getOfficerDataList($event)" (backBtnEmiter)="goback($event)"></app-committee-manage-office>
+            </ng-template>
+          </mat-tab>
+          <mat-tab [disabled]="isSelected(3)" label="{{static_data.committee_registration.tab_heading.heding_4}}">
+            <ng-template matTabContent>
+              <h1 class="color-BrightBlue header-pad-top">
+                {{static_data.committee_registration.bank_info.heading}}
+              </h1>
+              <app-bank-information (bankEmitter)="updatebankSubmitCommittee($event)" (backBtnEmiter)="goback($event)"></app-bank-information>
+            </ng-template>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="flex bottom-btn margin-bottom-25">
+    <span>
+      <a class="color-BrightBlue back-btn" href="javascript:void(0)" (click)="back()">{{static_data.button.back}}</a>
+    </span>
+    <span>
+      <button id="addInfo" type="button" mat-flat-button color="primary"
+        class="nrmlfillbtn">{{static_data.button.next}}</button>
+    </span>
+  </div> -->
+
+  <!-- Committee Registration Success Screen below-->
+  <div *ngIf="!showTab">
+    <div class="container">
+      <div class="">
+        <div class="width-100 account-inner-view" style="padding: 1rem 2rem;">
+          <app-committe-registration-success [email]="'clarkOffice@gmail.com'"></app-committe-registration-success>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

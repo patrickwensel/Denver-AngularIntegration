@@ -1,0 +1,47 @@
+.msglist {
+    width: 40%;
+  }
+  
+  .msgdisplay {
+    width: 60%;
+  }
+  .head {
+    color: #0f5597;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding-left: 20px;
+  }
+  
+  .txt-align {
+    float: right;
+    text-align: left;
+  }
+  h2 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    padding-top: 12%;
+    margin-bottom: 50px;
+  }
+  
+  h2 span {
+    background: #fff;
+    padding: 0 16px;
+  }
+  
+  .namehead {
+    float: left;
+    padding-top: 6%;
+    font-size: 28px;
+  }
+  .msgcontent {
+    display: flex;
+  }
+
+  .leftalign {
+    width: 75%;
+
+  }

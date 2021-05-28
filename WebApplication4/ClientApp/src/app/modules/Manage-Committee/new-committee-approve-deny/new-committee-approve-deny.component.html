@@ -1,0 +1,122 @@
+<div>
+  <div>
+    <div class="container">
+      <div class="matform-Container">
+        <div fxLayout="row" class="mar-tp-header">
+          <div fxFlex="70" class="sub-section-1">
+            <div fxLayout="row">
+              <h1 class="account-modules color-NavyBlue font-600">
+                {{ static_data.lobbyist.register.counsil }}
+              </h1>
+            </div>
+
+            <div fxLayout="row">
+              <h2 class="account-modules text-color font-600">
+                {{ static_data.manage_committee.committee_registration }}
+              </h2>
+
+            </div>
+            <div fxLayout="row">
+              <h2 class="account-modules color-NavyBlue">
+                {{ static_data.manage_committee.committee_information }}
+              </h2>
+
+                    <app-current-committee [Id]="id"></app-current-committee>
+
+              </div>
+
+
+            <div fxLayout="row">
+              <div class="padding-class">
+                <h2 class="account-modules color-NavyBlue">
+                  {{ static_data.manage_committee.committee_contaact }}
+                </h2>
+                <div fxFlex="30" class="sub-section-2">
+                  <app-current-committee-contact-information [Id]="id"></app-current-committee-contact-information>
+                </div>
+              </div>
+            </div>
+
+            <div fxLayout="row">
+              <div class="padding-class">
+                <h2 class="account-modules color-NavyBlue">
+                  {{ static_data.manage_committee.officer_contact_information }}
+                </h2>
+                <div fxFlex="30" class="sub-section-3">
+                  <app-current-committee-officer-information [Id]="id">
+                  </app-current-committee-officer-information>
+                </div>
+              </div>
+            </div>
+
+            <div fxLayout="row">
+              <div class="padding-class">
+                <h2 class="account-modules color-NavyBlue">
+                  {{ static_data.manage_committee.bank_information }}
+                </h2>
+                <div fxFlex="30" class="sub-section-2">
+                  <app-current-committee-bank-information [Id]="id"></app-current-committee-bank-information>
+                </div>
+              </div>
+            </div>
+
+            <div fxLayout="row">
+              <div class="padding-class">
+                <h4 class="account-modules color-NavyBlue">Add Note</h4>
+                <div fxFlex="30" class="sub-section-3">
+                  <form [formGroup]="addNoteForm">
+                  <div>
+
+                    <textarea class="deactive-modal" formControlName="addNote" matInput resize="none"></textarea>
+                  </div>
+                  <div class="btn-class">
+                    <span id="btn-class">
+                      <button class="download-button" mat-button color="primary" (click)="validateDeny(false)">{{static_data.button.deny}}</button>
+                    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="save-btn">
+                      <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn" (click)="validateApprove(true)"
+                      > {{static_data.button.approve}}</button>
+                    </span>
+                  </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+            <div fxLayout="row">
+              <div class="padding-class">
+                <h4 class="account-modules color-NavyBlue">Subject</h4>
+                <div fxFlex="30" class="sub-section-3">
+                  <form [formGroup]="msgForm">
+                  <div>
+                    <input class="active-modal" formControlName="subject" matInput resize="none"/>
+                  </div><br>
+                  <h4 class="account-modules color-NavyBlue">Message</h4>
+                  <div fxFlex="30" class="sub-section-3">
+                    <div>
+                      <textarea class="deactive-modal" formControlName="message" matInput resize="none"></textarea>
+                    </div>
+                  </div>
+                  <div class="btn-class">
+                    <span id="save-btn">
+                      <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn"
+                      > {{static_data.button.send}}</button>
+                    </span>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+
+
+            <span class="btn-mar-back">
+              <a href="javascript:void(0)">Back</a>
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

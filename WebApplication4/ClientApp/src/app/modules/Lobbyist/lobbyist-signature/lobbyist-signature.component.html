@@ -1,0 +1,72 @@
+<div class="regisLobby">
+    <h2 class="header-pad-top font-400">
+        {{static_data.lobbyist.register.signature_lobby}}
+    </h2>
+</div>
+<div class="tab-width">
+<form class="create-form" id="create-info" autocomplete="off" [formGroup]="LobbySignatureForm">
+
+    <div class="flex">
+        <mat-label class="width-20">{{static_data.lobbyist.signature.first_name}}</mat-label>
+        <mat-form-field appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <input matInput type="text" autocomplete="off" autofocus form-fields id="firstName"
+                formControlName="firstName" keyPrevent [AlphaSpace]="true" minlength="2" required>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(LobbySignatureForm.get('firstName'), 'firstName')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+
+    <div class="flex">
+        <mat-label  class="width-20">{{static_data.lobbyist.signature.last_name}}</mat-label>
+        <mat-form-field class="create-full-width" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+            <input matInput type="text" autocomplete="off" autofocus form-fields id="lastName"
+                formControlName="lastName" keyPrevent [AlphaSpace]="true" minlength="2" required>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(LobbySignatureForm.get('lastName'), 'lastName')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+
+    <div class="flex">
+        <mat-label  class="width-20">{{static_data.lobbyist.signature.email}}</mat-label>
+        <mat-form-field class="create-full-width" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+            <input matInput type="text" autocomplete="off" autofocus form-fields id="email"
+                formControlName="email" required>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(LobbySignatureForm.get('email'), 'email')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+</form>
+</div>
+<!-- Signature -->
+<div>
+    <div class="wrapper"  style="border: 1px solid #0f0f0f;border-style: dotted;">
+        <canvas id="signature-pad" class="signature-pad"></canvas>
+
+
+      </div>
+      <span style=" border-bottom: 5px solid red;"></span>
+      <div>
+      <span style="margin-left: 40%;">Draw Signature</span>
+      <span style="margin-left: 43%;">
+        <button mat-button color="primary" (click)="clear()">{{static_data.button.clear}}</button>
+    </span>
+    </div>
+
+</div>
+
+<!-- Signature -->
+<br><br><br>
+<div>
+    <span class="btn-mar-back">
+        <a href="javascript:void(0)" (click)="goBack()"> {{static_data.lobbyist.register.back}}</a>
+    </span>
+    <span class="btn-mar-align">
+        <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn" (click)="submitLobbiestDetail()"> {{static_data.lobbyist.register.submit}}</button>
+    </span>
+</div>

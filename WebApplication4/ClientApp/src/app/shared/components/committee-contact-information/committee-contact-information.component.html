@@ -1,0 +1,123 @@
+<div class="tab-width">
+    <form class="create-form" id="create-info" autocomplete="off" [formGroup]="createCommitteeInformationForm">
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.address_1}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.address_1}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="Address1" formControlName="address1" maxlength="150" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('address1'), 'committee-address1')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.address_2}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.address_2}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="Address2" formControlName="address2" maxlength="150" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('address2'), 'committee-address2')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.city}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.city}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="City" formControlName="city" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('city'), 'city')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.state}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.state}}</mat-label>
+                <mat-select formControlName="state" required>
+                    <mat-option *ngFor="let state of stateList" value="{{state.stateCode}}">{{state.stateDesc}}</mat-option>
+                </mat-select>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('state'), 'state')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.zipcode}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.zipcode}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields keyPrevent [OnlyNumber]="true" id="zipCode" formControlName="zipCode" required minlength="5" maxlength="5">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('zipCode'), 'zipCode')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.camp_phone}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.camp_phone}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="campPhone" formControlName="campPhone" required maxlength="10" keyPrevent [OnlyNumber]="true" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('campPhone'), 'campPhone')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.camp_email}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.camp_email}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="campEmail" formControlName="campEmail" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('campEmail'), 'campEmail')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.alt_phone}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.alt_phone}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="altPhone" formControlName="altPhone" maxlength="10" keyPrevent [OnlyNumber]="true">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('altPhone'), 'altPhone')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.alt_email}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.alt_email}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="altEmail" formControlName="altEmail">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('altEmail'), 'altEmail')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label class="width-20">{{static_data.committee_registration.commitee_contact.comm_website}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.comm_website}}</mat-label>
+                <input matInput type="text" autocomplete="off" autofocus form-fields id="commWebsite" formControlName="commWebsite">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(createCommitteeInformationForm.get('commWebsite'), 'commWebsite')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- <div class="flex bottom-btn margin-bottom-25">
+            <span>
+              <a class="color-BrightBlue back-btn" href="javascript:void(0)" (click)="goBack()">{{static_data.button.back}}</a>
+            </span>
+            <span>
+                <button mat-raised-button color="primary" class="right" (click)="next()">{{static_data.button.next}}</button>
+            </span>
+        </div> -->
+
+    </form>
+</div>
+
+<br><br> <br>
+<div>
+    <button mat-raised-button color="primary" class="right" (click)="next()">{{static_data.button.next}}</button>
+    <a  class="color-BrightBlue back-btn goToBack" id="back" type="button" (click)="goBack()"
+  >{{static_data?.button?.back}}</a>
+</div>

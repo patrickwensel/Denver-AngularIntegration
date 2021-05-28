@@ -1,0 +1,42 @@
+<div>
+    <div>
+        <h4 class="color-BrightBlue text-font-family text-font-weght header-pad-top">
+            {{static_data.committee_registration.committee_registration_success.thank_you_message}}
+        </h4>
+    </div>
+    <div>
+        <h4 class="header-pad-top text-font-family">
+            <p>{{static_data.committee_registration.committee_registration_success.treasurer_message}} {{email}}</p>
+        </h4>
+    </div>
+    <br>
+    <div>
+        <button id="addInfo" type="button" mat-flat-button color="primary" (click)="downloadFile('URL')"
+            class="nrmlfillbtn btn-radius">{{static_data.committee_registration.committee_registration_success.treasurer_btn}}</button>
+    </div>
+    <br><br>
+    <div>
+        <h4 class="header-pad-top text-font-family">
+            <p>{{static_data.committee_registration.committee_registration_success.candidate_message}} {{email}}</p>
+        </h4>
+    </div>
+    <br>
+    <div>
+        <button id="addInfo" type="button" mat-flat-button color="primary" (click)="downloadFile('URL')"
+            class="nrmlfillbtn btn-radius">{{static_data.committee_registration.committee_registration_success.candidate_btn}}</button>
+    </div>
+    <br><br>
+    <div>
+        <h4 class="header-pad-top text-font-family">
+            <p>{{static_data.committee_registration.committee_registration_success.contact_us_message}}</p>
+        </h4>
+    </div>
+    <br>
+    <div>
+        <button id="addInfo" type="button" mat-flat-button color="primary" (click)="downloadFile('URL')"
+            class="nrmlfillbtn btn-radius">{{static_data.committee_registration.committee_registration_success.contact_us_btn}}</button>
+    </div>
+    <br>
+
+
+</div>

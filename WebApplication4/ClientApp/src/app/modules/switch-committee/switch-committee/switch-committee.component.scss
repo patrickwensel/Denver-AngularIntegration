@@ -1,0 +1,104 @@
+.matform-Container {
+  padding-left: 100px;
+}
+
+.font-600 {
+  font-weight: 600 !important;
+}
+
+.text-color {
+  color: #135fac;
+}
+
+.mat-radio-button {
+  margin: 5px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  display: none;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #58595b !important; /*inner circle color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #58595b !important; /*outer ring color change*/
+}
+:host ::ng-deep .mat-typography p {
+  margin: 0;
+  transform: translate(9px, 14px) !important;
+}
+::ng-deep .mat-radio-outer-circle {
+  height: 20px !important;
+  width: 20px !important;
+}
+::ng-deep .mat-radio-inner-circle {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+/// Classess
+
+.mar-tp-header {
+  margin-top: 4%;
+}
+
+.btn-join {
+  border: 1px solid #0f5597 !important;
+  color: #0f5597;
+  background-color: #fafafa;
+}
+
+.tab-width {
+  width: 35%;
+}
+
+.justifyPara {
+  text-align: justify;
+}
+
+.btn-send {
+  // float: right;
+  // margin-top: 15px;
+}
+
+.btn-back {
+  margin-top: 15px;
+}
+
+.txt-align-center {
+  text-align: center;
+}
+
+.backAndSend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#select_filer {
+  width: 45%;
+  height: 45px;
+}
+
+.underline {
+  color: #c9c9c9;
+}
+
+.font-sze {
+  font-size: medium;
+}
+
+.font-sze-large {
+  font-size: x-large;
+}
+
+.font-sze-xlarge {
+  font-size: xx-large;
+}
+
+.cls-cursor {
+  cursor: pointer;
+}

@@ -1,0 +1,73 @@
+<!-- <h1 class="color-BrightBlue header-pad-top">
+    {{static_data.create_account.additional_information_IEF.heading}}
+</h1> -->
+<form class="create-form" id="create-info" autocomplete="off" [formGroup]="independentExpenditureForm">
+    <h3 class="header-pad-top">
+        {{static_data.create_account.additional_information_IEF.filling_as}}
+    </h3>
+    <div class="flex">
+        <mat-label class="width-20">{{static_data.create_account.additional_information_IEF.filer_type}}
+        </mat-label>
+        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <mat-label class="width-20" class="visuallyhidden">
+                {{static_data.create_account.additional_information_IEF.filer_type}}</mat-label>
+            <mat-select formControlName="filerType" (selectionChange)="changevalue()">
+                <mat-option *ngFor="let type of filerTypes" [value]="type.lookUpTypeId">
+                    {{type.lookUpName}}
+                </mat-option>
+            </mat-select>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(independentExpenditureForm.get('filerType'), 'filerType')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="flex" *ngIf="filerRole == 'FT-IND'">
+        <mat-label class="width-20">{{static_data.create_account.additional_information_IEF.occupation}}
+        </mat-label>
+        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <mat-label class="width-20" class="visuallyhidden">
+                {{static_data.create_account.additional_information_IEF.occupation}}
+            </mat-label>
+            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="occupation"
+                formControlName="occupation" [required]="filerRole == 'FT-IND'">
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(independentExpenditureForm.get('occupation'), 'occupation')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="flex" *ngIf="filerRole == 'FT-IND'">
+        <mat-label class="width-20"> {{static_data.create_account.additional_information_IEF.employer}}
+        </mat-label>
+        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <mat-label class="width-20" class="visuallyhidden">
+                {{static_data.create_account.additional_information_IEF.employer}}
+            </mat-label>
+            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="employer"
+                formControlName="employer" required>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(independentExpenditureForm.get('employer'), 'employer')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="flex" *ngIf="filerRole == 'FT-ORG'">
+        <mat-label class="width-20">
+            {{static_data.create_account.additional_information_IEF.organizationName}}</mat-label>
+        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <mat-label class="width-20" class="visuallyhidden">
+                {{static_data.create_account.additional_information_IEF.organizationName}}</mat-label>
+            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="organization"
+                formControlName="employer" required>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(independentExpenditureForm.get('employer'), 'orgName')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <!-- <button id="back" type="button" (click)="Sendback()" mat-flat-button class="nrmlfillbtn btn-back">back</button> -->
+        <button id="sendD" type="button" (click)="SendNewIEDetail()" mat-flat-button color="primary"
+            class="nrmlfillbtn btn-send">Send</button>
+            <a  class="color-BrightBlue back-btn " style="margin-top: 20px;" id="back" type="button" (click)="Sendback()"
+    >{{static_data?.button?.back}}</a>
+    </div>
+</form>

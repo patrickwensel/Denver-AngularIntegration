@@ -1,0 +1,37 @@
+.header-pad-top {
+  padding-top: 15px;
+  font-size: 20px;
+  color: #005596;
+  font-family: 'open sans', sans-serif;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.btn-mar-align {
+  margin-left: 70%;
+}
+mat-form-field{
+  width: 400px;
+}
+.material-icons{
+  color: #005596;
+}
+
+.tab-width {
+    width: 50%;
+}
+
+.btn-mar-back {
+  margin-left: 15px;
+}
+
+#cancel-btn{
+  padding-left: 435px;
+}
+#save-btn{
+  padding-left: 25px;
+}
+::ng-deep .mat-table thead{
+  background: #f0f0f0;
+}

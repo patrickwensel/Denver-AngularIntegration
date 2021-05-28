@@ -1,0 +1,165 @@
+<div class="regisLobby">
+    <h2 class="header-pad-top font-400">
+      {{static_data.lobbyist.register.relationship_lobby}}
+    </h2>
+  </div>
+  <div>
+    <p class="instruction-modules color-BrightBlue">Instructions go here ...</p>
+    </div>
+
+
+  <table mat-table [dataSource]="lobbyRelationshipList" multiTemplateDataRows>
+
+    <ng-container matColumnDef="lobbyist">
+      <th mat-header-cell *matHeaderCellDef> Lobbyist </th>
+      <td mat-cell *matCellDef="let element"> {{element.lobbyist}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="officialName">
+      <th mat-header-cell *matHeaderCellDef> Official Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.officialName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="officialTitle">
+      <th mat-header-cell *matHeaderCellDef> Official Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.officialTitle}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="relationship">
+      <th mat-header-cell *matHeaderCellDef>Relationship</th>
+      <td mat-cell *matCellDef="let element"> {{element.relationship}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="entityName">
+      <th mat-header-cell *matHeaderCellDef>Entity Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.entityName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action</th>
+      <td mat-cell *matCellDef="let element">
+        <span class="material-icons" (click)="editRelationships(element)">mode_edit_outline</span>&nbsp;&nbsp;
+        <span class="material-icons" (click)="openConfirmationModal(element.id)">delete_forever</span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="RelationshipLobby"></tr>
+    <tr mat-row *matRowDef="let row; columns: RelationshipLobby;"></tr>
+  </table>
+
+  <div class="regisLobby">
+    <h2 class="header-pad-top  font-400">
+      {{static_data.lobbyist.register.add_new_relationship}}
+    </h2>
+  </div>
+  <br><br>
+  <form class="create-form" id="create-info" autocomplete="off" [formGroup]="LobbyRelationshipForm">
+
+    <div class="form-class">
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-label>{{static_data.lobbyist.relationship.lobbyist}}</mat-label>
+        </div>
+        <div class="col-sm-10">
+          <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <mat-select formControlName="lobbyist">
+              <mat-option *ngFor="let option of SearchLobby" [value]="option.firstName">
+                {{option.firstName}}
+            </mat-option>
+          </mat-select>
+            <mat-error class="error">
+              {{errorService.checkErrorMessage(LobbyRelationshipForm.get('lobbyist'), 'lobbyist')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-class">
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-label>{{static_data.lobbyist.relationship.official_name}}</mat-label>
+        </div>
+        <div class="col-sm-10">
+          <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <input matInput type="text" autocomplete="off"  form-fields id="officialName"
+              formControlName="officialName" required  keyPrevent [Alphanumeric]="true" maxlength="120" minlength="2">
+            <mat-error class="error">
+              {{errorService.checkErrorMessage(LobbyRelationshipForm.get('officialName'), 'officialName')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-class">
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-label>{{static_data.lobbyist.relationship.official_title}}</mat-label>
+        </div>
+        <div class="col-sm-10">
+          <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <input matInput type="text" autocomplete="off"  form-fields id="officialTitle"
+              formControlName="officialTitle" required  keyPrevent [Alphanumeric]="true" maxlength="120" minlength="2">
+            <mat-error class="error">
+              {{errorService.checkErrorMessage(LobbyRelationshipForm.get('officialTitle'), 'officialTitle')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-class">
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-label>{{static_data.lobbyist.relationship.relationship}}</mat-label>
+        </div>
+        <div class="col-sm-10">
+          <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <input matInput type="text" autocomplete="off"  form-fields id="relationship"
+              formControlName="relationship" required  keyPrevent [Alphanumeric]="true" maxlength="120" minlength="2">
+            <mat-error class="error">
+              {{errorService.checkErrorMessage(LobbyRelationshipForm.get('relationship'), 'relationship')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-class">
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-label>{{static_data.lobbyist.relationship.entity_name}}</mat-label>
+        </div>
+        <div class="col-sm-10">
+          <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <input matInput type="text" autocomplete="off" form-fields id="entityName"
+              formControlName="entityName" required keyPrevent [Alphanumeric]="true" maxlength="120" minlength="2">
+            <mat-error class="error">
+              {{errorService.checkErrorMessage(LobbyRelationshipForm.get('entityName'), 'entityName')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <span id="cancel-btn">
+        <a href="javascript:void(0)" (click)="validateCancel()"> {{static_data.lobbyist.register.cancel}}</a>
+      </span>
+      <span id="save-btn">
+        <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn"
+        (click)="ValidateEmployeeForm()"> {{static_data.lobbyist.register.save}}</button>
+      </span>
+    </div>
+
+  </form>
+  <br><br><br>
+  <div>
+    <span class="btn-mar-back">
+      <a href="javascript:void(0)" (click)="goBack()"> {{static_data.lobbyist.register.back}}</a>
+    </span>
+    <span class="btn-mar-align">
+      <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn" (click)="SubmitRelationshipForm()"> {{static_data.lobbyist.register.next}}</button>
+    </span>
+  </div>
