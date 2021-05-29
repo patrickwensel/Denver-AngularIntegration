@@ -1,5 +1,17 @@
 <header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+  <mat-toolbar>
+    <span>
+      <img src="assets/images/denver_logo.png" title="Logo" alt="LOGO">
+    </span>
+    <span class="example-spacer" style="margin-left: auto;">
+      <button mat-raised-button [routerLink]="['/help']" class="btn btn-secondary">Help</button>
+      <button mat-raised-button [routerLink]="['/login']" class="ml-4 btn btn-primary">Log in</button>
+    </span>
+    <!-- <span class="example-spacer" style="margin-left: auto;">
+      <button mat-raised-button [routerLink]="['/login']">Login</button>
+    </span> -->
+  </mat-toolbar>
+  <!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/']">WebApplication4</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
@@ -24,5 +36,5 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
 </header>
