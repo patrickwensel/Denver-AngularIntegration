@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApplication4
+namespace Denver.UI
 {
     public class WeatherForecast
     {

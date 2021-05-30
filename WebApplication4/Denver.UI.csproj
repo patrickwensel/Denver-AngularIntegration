@@ -48,6 +48,7 @@
     <Folder Include="ClientApp\src\app\modules\" />
     <Folder Include="ClientApp\src\app\core\" />
     <Folder Include="ClientApp\src\app\shared\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
