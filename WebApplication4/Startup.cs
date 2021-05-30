@@ -16,10 +16,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
-using WebApplication4.Data;
-using WebApplication4.Models;
+using Denver.UI.Data;
+using Denver.UI.Models;
 
-namespace WebApplication4
+namespace Denver.UI
 {
     public class Startup
     {

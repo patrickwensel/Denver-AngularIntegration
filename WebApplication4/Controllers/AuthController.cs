@@ -11,10 +11,10 @@ using System.Linq;
 using System.Security.Authentication;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using WebApplication4.Identity;
-using WebApplication4.Models;
+using Denver.UI.Identity;
+using Denver.UI.Models;
 
-namespace WebApplication4.Controllers
+namespace Denver.UI.Controllers
 {
     [Route("[controller]/[action]")]
     public class AuthController : Controller

@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebApplication4.Data;
-using WebApplication4.Models;
+using Denver.UI.Data;
+using Denver.UI.Models;
 
-[assembly: HostingStartup(typeof(WebApplication4.Areas.Identity.IdentityHostingStartup))]
-namespace WebApplication4.Areas.Identity
+[assembly: HostingStartup(typeof(Denver.UI.Areas.Identity.IdentityHostingStartup))]
+namespace Denver.UI.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {

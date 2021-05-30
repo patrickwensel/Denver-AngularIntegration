@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using WebApplication4.Models;
+using Denver.UI.Models;
 
-namespace WebApplication4.Areas.Identity.Pages.Account.Manage
+namespace Denver.UI.Areas.Identity.Pages.Account.Manage
 {
     public class EnableAuthenticatorModel : PageModel
     {
@@ -149,7 +149,7 @@ namespace WebApplication4.Areas.Identity.Pages.Account.Manage
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("WebApplication4"),
+                _urlEncoder.Encode("Denver.UI"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "WebApplication4": {
+    "Denver.UI": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "WebApplication4:build"
+            "browserTarget": "Denver.UI:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "WebApplication4:build:production"
+              "browserTarget": "Denver.UI:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "WebApplication4:build"
+            "browserTarget": "Denver.UI:build"
           }
         },
         "test": {
@@ -127,7 +127,7 @@
         }
       }
     },
-    "WebApplication4-e2e": {
+    "Denver.UI-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -135,7 +135,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "WebApplication4:serve"
+            "devServerTarget": "Denver.UI:serve"
           }
         },
         "lint": {
@@ -150,5 +150,5 @@
       }
     }
   },
-  "defaultProject": "WebApplication4"
+  "defaultProject": "Denver.UI"
 }

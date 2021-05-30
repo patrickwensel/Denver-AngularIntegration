@@ -1,4 +1,4 @@
-export const ApplicationName = 'WebApplication4';
+export const ApplicationName = 'Denver.UI';
 
 export const ReturnUrlType = 'returnUrl';
 

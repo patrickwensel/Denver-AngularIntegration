@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace WebApplication4.Identity
+namespace Denver.UI.Identity
 {
     public static class ClaimsTransform
     {
