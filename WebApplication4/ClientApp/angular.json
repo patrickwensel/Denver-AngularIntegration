@@ -16,8 +16,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "progress": false,
-            "extractCss": true,
+            "progress": false,           
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -45,7 +44,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
